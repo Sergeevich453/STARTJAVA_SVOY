@@ -67,6 +67,20 @@ public class CyclesTheme{
         sum = sum + rem;
         num = num / 10;
         }
-        System.out.println("revers " + rev + "\nsum" + sum); 
+        System.out.println("revers " + rev + "\nsum" + sum);
+
+        System.out.println("");
+        System.out.println("\t" + "ЗАДАНИЕ 4 \nВывод чисел на консоль в несколько строк\n");
+        int count = 0;
+        for(int i = 1; i<= 24; i+=2){
+            System.out.printf("%3d", i);
+            count++;
+            if(count % 5 == 0){
+                while(count % 5 != 0){
+                    System.out.println("0");
+                }
+                System.out.println();
+            }
+            }
     }
 }
