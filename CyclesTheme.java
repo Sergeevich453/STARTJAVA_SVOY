@@ -1,59 +1,57 @@
 public class CyclesTheme{
     public static void main(String[] args) {
 
-        System.out.println("");
-        System.out.println("\t" + "ЗАДАНИЕ 1 \nПодсчет суммы четных и нечетных чисел\n");
-        int i = 0;
-        int b = -10;
-        do{
-            b = b + i;
-            if(b % 2 == 0){
-                System.out.println("Число: " + b + " четное");
-            }else( b % 2 != 0){
-                System.out.println("Число: " + b + " нечетное");
+        System.out.println("\n\t" + "ЗАДАНИЕ 1 \nПодсчет суммы четных и нечетных чисел\n");
+        int num1 = 0;
+        int num2 = -10;
+        do {
+            num2 = num2 + num1;
+            if (num2 % 2 == 0) {
+                System.out.println("Число: " + num2 + " четное");
+            } else if ( num2 % 2 != 0) {
+                System.out.println("Число: " + num2 + " нечетное");
             }
-            
-            i++;
-        }while(b < 20);
+            num1++;
+        } while (num2 < 20);
 
         System.out.println("");
         System.out.println("\t" + "ЗАДАНИЕ 2 \nВывод чисел в интервале (min и max) в порядке убывания\n");
-        int a = 10;
-        int b = 5;
-        int c = -1;
-        int max = 0;
-        int sred = 0;
-        int min = 0;
+        num1 = 10;
+        num2 = 5;
+        int num3 = -1;
+        int numMax = 0;
+        int numSred = 0;
+        int numMin = 0;
         for(int i = 0; i <= 3 ; i++){
-            if(a > b & a > c){
-                max = a;
+            if(num1 > num2 & num1 > num3){
+                numMax = num1;
             }
-            if(a < b & a > c || a > b & a < c ){
-                sred = a;
+            if(num1 < num2 & num1 > num3 || num1 > num2 & num1 < num3 ){
+                numSred = num1;
             }
-            if(a < b & a < c){
-                min = a;
+            if(num1 < num2 & num1 < num3){
+                numMin = num1;
             }
-            if(b > a & b > a){
-                max = b;
+            if(num2 > num1 & num2 > num1){
+                numMax = num2;
             }
-            if(b < a & b > a || b > a & b < a ){
-                sred = b;
+            if(num2 < num1 & num2 > num1 || num2 > num1 & num2 < num1 ){
+                numSred = num2;
             }
-            if(b < a & b < a){
-                min = b;
+            if(num2 < num1 & num2 < num1){
+                numMin = num2;
             }
-            if(c > b & c > a){
-                max = c;
+            if(num3 > num2 & num3 > num1){
+                numMax = num3;
             }
-            if(c < b & c > a || c > b & c < a ){
-                sred = c;
+            if(num3 < num2 & num3 > num1 || num3 > num2 & num3 < num1 ){
+                numSred = num3;
             }
-            if(c < b & c < a){
-                min = c;
+            if(num3 < num2 & num3 < num1){
+                numMin = num3;
             }
         }
-        System.out.println(min + " min " + sred + " sred " + max + " max ");
+        System.out.println(numMin + " min " + numSred + " sred " + numMax + " max ");
 
         System.out.println("");
         System.out.println("\t" + "ЗАДАНИЕ 3 \nВывод реверсивного числа и суммы его цифр\n");
@@ -69,10 +67,10 @@ public class CyclesTheme{
         }
         System.out.println("revers " + rev + "\nsum" + sum);
 
-        System.out.println("");
+        /*System.out.println("");
         System.out.println("\t" + "ЗАДАНИЕ 4 \nВывод чисел на консоль в несколько строк\n");
         int count = 0;
-        for(int i = 1; i<= 24; i+=2){
+        for(int i = 1; i <= 24; i += 2){
             System.out.printf("%3d", i);
             count++;
             if(count % 5 == 0){
@@ -81,6 +79,6 @@ public class CyclesTheme{
                 }
                 System.out.println();
             }
-            }
+            }*/
     }
 }
