@@ -80,5 +80,27 @@ public class CyclesTheme{
                 System.out.println();
             }
             }*/
+
+            System.out.println("\n\t" + "ЗАДАНИЕ 6 \nОтображение фигур в консоли\n");
+        int i = 0;
+        do {
+            int j = 0;
+            do {
+                System.out.print("$");
+                j++;
+            } while (j <= i);
+            System.out.println();
+            i++;
+        } while (i <= 2);
+        i = 2;
+        do {
+            int j = 1;
+            do {
+                System.out.print("$");
+                j++;
+            } while (j <= i);
+            System.out.println();
+            i--;
+        } while (i >= 1 );
     }
 }
