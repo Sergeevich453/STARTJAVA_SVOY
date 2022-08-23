@@ -11,22 +11,27 @@ public class Test3_6{
                 System.out.println();
             }
         }*/
-        int num  = 10;
-        int count = 1;
-        int count1 = 1;
-        while (count1 % num != 0 ) {
-            System.out.print("#");
-            count++;
-           // if (count % num == 0) {
-             //   System.out.println();
-            //}
-            if (count % num == 0){
-                System.out.println();
-            
-            //System.out.println("num " + num);
-            num--;
+        
+        /*int i = 10;
+        while (i >= 1) {
+            int j = 1;
+            while (j <= i) {
+                System.out.print("#");
+                j++;
             }
+            System.out.println("");
+            i--;
+        }*/
+        i = 1;
+        j = 3;
+        do {
 
-        }
+            do{
+                System.out.print("$");
+                j--;
+            } while (j >= i);
+            System.out.println();
+            i++;
+        } while (i <= 1 );
     }
 }
