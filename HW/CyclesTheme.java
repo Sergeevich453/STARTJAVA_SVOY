@@ -55,11 +55,11 @@ public class CyclesTheme{
 
         System.out.println("");
         System.out.println("\t" + "ЗАДАНИЕ 3 \nВывод реверсивного числа и суммы его цифр\n");
-        int num = 1234;
+        int num = 1231;
         int rem = 0;
         int rev = 0;
         int sum = 0;
-        while(num>0){
+        while(num > 0){
         rem = num % 10;
         rev = rev * 10 + rem;
         sum = sum + rem;
@@ -67,7 +67,7 @@ public class CyclesTheme{
         }
         System.out.println("revers " + rev + "\nsum" + sum);
 
-        /*System.out.println("");
+        System.out.println("");
         System.out.println("\t" + "ЗАДАНИЕ 4 \nВывод чисел на консоль в несколько строк\n");
         int count = 0;
         for(int i = 1; i <= 24; i += 2){
@@ -79,10 +79,46 @@ public class CyclesTheme{
                 }
                 System.out.println();
             }
-            }*/
+        }
 
-            System.out.println("\n\t" + "ЗАДАНИЕ 6 \nОтображение фигур в консоли\n");
-        int i = 0;
+        System.out.println("\n\t" + "ЗАДАНИЕ 5 \nПроверка количества единиц на четность\n");
+        num = 3141591;
+        num1 = num;
+        int checkNum = 0;
+        int one = 0;
+        while (num > 0){
+            checkNum = num % 10;
+            if(checkNum == 1){
+                one++;
+            }
+            num = num / 10;
+        }
+        if (one % 2 == 0) {
+            System.out.println("число " + num1 + " содержит " + one + " четное количество единиц");
+        } else {
+            System.out.println("число " + num1 + " содержит " + one + " нечетное количество единиц");
+        }
+
+        System.out.println("\n\t" + "ЗАДАНИЕ 6 \nОтображение фигур в консоли\n");
+        count = 0;
+        for (int i = 0; i <= 49; i++) {
+            System.out.print("*");
+            count++;
+            if (count % 10 == 0) {
+                System.out.println();
+            }
+        }
+        int i = 10;
+        while (i >= 1) {
+            int j = 1;
+            while (j <= i) {
+                System.out.print("#");
+                j++;
+            }
+            System.out.println("");
+            i--;
+        }
+        i = 0;
         do {
             int j = 0;
             do {
@@ -102,5 +138,39 @@ public class CyclesTheme{
             System.out.println();
             i--;
         } while (i >= 1 );
+
+        System.out.println("\n\t" + "ЗАДАНИЕ 7 \nОтображение ASCII-символов\n");
+        //i = (char) i;
+        for (i = 0; i <= 47; i++) {
+            if (((int) i) % 2 != 0) {
+                System.out.printf("%6s%6s", i, ((char) i));
+                System.out.println();
+            }
+        }
+        System.out.println();
+        for (i = 97; i <= 122; i++) {
+            if (((int) i) % 2 == 0) {
+                System.out.printf("%6s%6s",  i, ((char) i));
+                System.out.println();
+            }
+        }
+
+        System.out.println("\n\t" + "ЗАДАНИЕ 8 \nПроверка, является ли число палиндромом\n");
+        num = 1234321;
+        rev = 0;
+        rem = 0;
+        checkNum = num;
+        while(num > 0) {
+            rem = num % 10;
+            rev = rev * 10 + rem;
+            num = num / 10;
+        }
+        if( checkNum == rev){
+            System.out.println("Число является палиндромом " + "\nЗаданное число: " + checkNum
+                    + "\nРеверс числа: " + rev);
+        } else {
+            System.out.println("Число неявляется палиндромом " + "\nЗаданное число: " + checkNum
+                + "\nРеверс числа: " + rev);
+        }
     }
 }
