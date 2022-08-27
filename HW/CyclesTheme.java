@@ -22,32 +22,32 @@ public class CyclesTheme{
         int numMax = 0;
         int numMid = 0;
         int numMin = 0;
-        for(int i = 0; i <= 3 ; i++){
-            if(num1 > num2 & num1 > num3){
+        for (int i = 0; i <= 3 ; i++) {
+            if (num1 > num2 & num1 > num3) {
                 numMax = num1;
             }
-            if(num1 < num2 & num1 > num3 || num1 > num2 & num1 < num3 ){
+            if (num1 < num2 & num1 > num3 || num1 > num2 & num1 < num3 ) {
                 numMid = num1;
             }
-            if(num1 < num2 & num1 < num3){
+            if (num1 < num2 & num1 < num3) {
                 numMin = num1;
             }
-            if(num2 > num1 & num2 > num1){
+            if (num2 > num1 & num2 > num1) {
                 numMax = num2;
             }
-            if(num2 < num1 & num2 > num1 || num2 > num1 & num2 < num1 ){
+            if (num2 < num1 & num2 > num1 || num2 > num1 & num2 < num1 ) {
                 numMid = num2;
             }
-            if(num2 < num1 & num2 < num1){
+            if (num2 < num1 & num2 < num1) {
                 numMin = num2;
             }
-            if(num3 > num2 & num3 > num1){
+            if (num3 > num2 & num3 > num1) {
                 numMax = num3;
             }
-            if(num3 < num2 & num3 > num1 || num3 > num2 & num3 < num1 ){
+            if (num3 < num2 & num3 > num1 || num3 > num2 & num3 < num1 ) {
                 numMid = num3;
             }
-            if(num3 < num2 & num3 < num1){
+            if (num3 < num2 & num3 < num1) {
                 numMin = num3;
             }
         }
@@ -59,7 +59,7 @@ public class CyclesTheme{
         int rem = 0;
         int rev = 0;
         int sum = 0;
-        while(num > 0){
+        while (num > 0) {
         rem = num % 10;
         rev = rev * 10 + rem;
         sum = sum + rem;
@@ -73,12 +73,13 @@ public class CyclesTheme{
         for(int i = 1; i <= 24; i += 2){
             System.out.printf("%3d", i);
             count++;
-            if(count % 5 == 0){
-                while(count % 5 != 0){
-                    System.out.println("0");
-                }
+            if (count % 5 == 0) {
                 System.out.println();
             }
+        }
+        while (count % 5 != 0) {
+            System.out.printf("%3d", 0);
+            count++;
         }
 
         System.out.println("\n\t" + "ЗАДАНИЕ 5 \nПроверка количества единиц на четность\n");
@@ -86,9 +87,9 @@ public class CyclesTheme{
         num1 = num;
         int checkNum = 0;
         int one = 0;
-        while (num > 0){
+        while (num > 0) {
             checkNum = num % 10;
-            if(checkNum == 1){
+            if (checkNum == 1) {
                 one++;
             }
             num = num / 10;
@@ -140,7 +141,6 @@ public class CyclesTheme{
         } while (i >= 1 );
 
         System.out.println("\n\t" + "ЗАДАНИЕ 7 \nОтображение ASCII-символов\n");
-        //i = (char) i;
         for (i = 0; i <= 47; i++) {
             if (((int) i) % 2 != 0) {
                 System.out.printf("%6s%6s", i, ((char) i));
@@ -160,17 +160,62 @@ public class CyclesTheme{
         rev = 0;
         rem = 0;
         checkNum = num;
-        while(num > 0) {
+        while (num > 0) {
             rem = num % 10;
             rev = rev * 10 + rem;
             num = num / 10;
         }
-        if( checkNum == rev){
+        if (checkNum == rev) {
             System.out.println("Число является палиндромом " + "\nЗаданное число: " + checkNum
                     + "\nРеверс числа: " + rev);
         } else {
             System.out.println("Число неявляется палиндромом " + "\nЗаданное число: " + checkNum
                 + "\nРеверс числа: " + rev);
+        }
+
+        System.out.println("\n\t" + "ЗАДАНИЕ 9 \nОпределение, является ли число счастливым\n");
+        num = 657576;
+        rem = 0;
+        rev = 0;
+        sum = 0;
+        count = 0;
+        int rev1 = 0;
+        int rem1 = 0;
+        int sum1 = 0;
+        int count1 = 0;
+        while (count <= 2) {
+            rem = num % 10;
+            rev = rev * 10 + rem;
+            sum = sum + rem;
+            num = num / 10;
+            count++;
+        }
+        while (count1 <= 2) {
+            rem1 = num % 10;
+            rev1 = rev1 * 10 + rem1;
+            sum1 = sum1 + rem1;
+            num = num / 10;
+            count1++;
+        }
+        if (sum == sum1) {
+            System.out.println("Сумма цифр sum = sum1: " + sum + " = " + sum1
+                    + "\nЧисло является счастливым");
+        } else {
+            System.out.println("Сумма цифр sum != sum1: " + sum + " = " + sum1
+                    + "\nЧисло неявляется счастливым");
+        }
+
+        System.out.println("\n\t" + "ЗАДАНИЕ 10 \nВывод таблицы умножения Пифагора\n");
+        System.out.print("\tТАБЛИЦА ПИФАГОРА " + "\n   ");
+        for(i = 2; i <= 9; i++) {
+            System.out.printf("%3d", i);
+        }
+        System.out.println();
+        for(i = 2; i < 10; i++){
+            for(int j = 1; j < 10; j++) {
+                System.out.printf("%3d", i * j);
+            }
+            System.out.println();
         }
     }
 }
