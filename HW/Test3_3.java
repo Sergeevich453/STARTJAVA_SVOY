@@ -1,7 +1,19 @@
 public class Test3_3 {
     public static void main(String[] args) {
-        
-        System.out.println("\n\t" + "ЗАДАНИЕ 3 \nВывод реверсивного числа и суммы его цифр\n");
+        System.out.println("\t" + "ЗАДАНИЕ 3 \nВывод реверсивного числа и суммы его цифр\n");
+        int num = 1234;
+        sum = 0;
+        while (num > 0) {
+            int digit = num % 10;
+            System.out.print(digit);
+            sum += digit;
+            num /= 10;
+        }
+        System.out.println("\nСумма чисел = " + sum);
+    }
+}
+
+/*System.out.println("\n\t" + "ЗАДАНИЕ 3 \nВывод реверсивного числа и суммы его цифр\n");
         int num = 6985;
         int numRem = 0;
         int numRev = 0;
@@ -12,6 +24,4 @@ public class Test3_3 {
         numSum = numSum + numRem;
         num = num / 10;
         }
-        System.out.println("Исходное число в обратном порядке: " + numRev + "\nСумма его цифр: " + numSum);
-    }
-}
+        System.out.println("Исходное число в обратном порядке: " + numRev + "\nСумма его цифр: " + numSum);*/
