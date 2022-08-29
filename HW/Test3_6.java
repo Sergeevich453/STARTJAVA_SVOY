@@ -155,41 +155,49 @@ public class Test3_6{
             i++;
             n = (i <= 2);
             }
-        } while (n);*/
+        } while (n);
 
         int i = 0;
         int count = 0;
         int j = 0;
         boolean n = (i <= 2);
         do {
-            System.out.println("i: " + i + " j: " + j + " count: " + count);
+            //System.out.println("i: " + i + " j: " + j + " count: " + count);
             if (count <= 2) {
                 j = 0;
             } else {
                 j = 1;
             }
             do {
-                // if( count == 3 ) {
-                // continue;
-                //}
                 System.out.print("$");
-                //if( count == 3 ) {
-                //continue;
-                //}
-                j++;
+                ++j;
             } while (j <= i);
             System.out.println();
             if (count <= 2) {
-                i++;
+                ++i;
             } else {
-                i--;
+                --i;
                 n = (i >= 1);
             }
-            count++;
-            if (count == 3) {
-                continue;
-            } 
-        } while (n);
+        } while (n);*/
+
+
+        int repeats = 3;
+        int countLines = -repeats + 1;
+        do {
+            int countSymbols = 1;
+            int countRepeats = countLines;
+            if (countRepeats < 0) {
+                countRepeats = -countRepeats;
+            }
+            do {
+                System.out.print("*");
+                ++countSymbols;
+            } while (countSymbols <= repeats - countRepeats);
+                ++countLines;
+                System.out.println();
+        } while (countLines <= repeats - 1);
+
 
     }
 }
