@@ -5,24 +5,24 @@ public class Test_3_2 {
         int num1 = 10;
         int num2 = 5;
         int num3 = -1;
-        int numMax = 0;
-        int numMin = 0;
+        int max = 0;
+        int min = 0;
         if (num2 < num1 && num1 > num3) {
-            numMax = num1;
+            max = num1;
         } else if (num3 < num2 && num2 > num1) {
-            numMax = num2;
+            max = num2;
         } else {
-            numMax = num3;
+            max = num3;
         }
         if (num2 > num1 && num1 < num3) {
-            numMin = num1;
+            min = num1;
         } else if (num1 > num2 && num2 < num3) {
-            numMin = num2;
+            min = num2;
         } else {
-            numMin = num3;
+            min = num3;
         }
-        for (int i = numMax; i >= numMin; i--) {
-            System.out.println("i= " + i);
+        for (int i = max - 1; i >= min + 1; i--) {
+            System.out.print(" " + i);
         }
     }
 }
