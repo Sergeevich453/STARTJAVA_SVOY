@@ -38,6 +38,10 @@ public class Test_3_9 {
                 sum1 += digit;
             }
             num /= 10;
+            System.out.println("\nnum: " + num);
+            if (num == 0) {
+                break;
+            }
         }
         if (sum == sum1) {
             System.out.println("Сумма цифр sum = sum1: " + sum + " = " + sum1 + "\nЧисло является счастливым");
