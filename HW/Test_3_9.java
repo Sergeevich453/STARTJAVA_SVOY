@@ -25,8 +25,7 @@ public class Test_3_9 {
         //while (count1 <= 2) {
             
             //count1++;
-        //}*/
-
+        //}
         int num = 65;
         int sum = 0;
         int sum1 = 0;
@@ -47,6 +46,32 @@ public class Test_3_9 {
             System.out.println("Сумма цифр sum = sum1: " + sum + " = " + sum1 + "\nЧисло является счастливым");
         } else {
             System.out.println("Сумма цифр sum != sum1: " + sum + " = " + sum1 + "\nЧисло неявляется счастливым");
+        }*/
+
+        int num = 5665;
+        int num1 = num;
+        int sum = 0;
+        int sum1 = 0;
+        int digit = num % 10;
+        int count = 0;
+        while (num1 != 0) {
+            num1 /= 10;
+            count++;            
+        }
+        for ( int i = 0; i < (count / 2) && num > 0 ; i++) {
+            sum += num % 10;
+            num /= 10;
+        }
+        for ( int i = 0; i < (count / 2) && num > 0 ; i++) {
+            sum1 += num % 10;
+            num /= 10;
+        }
+        if (sum == sum1) {
+            System.out.println("Сумма цифр sum = sum1: " + sum + " = " + sum1 
+                    + "\nЧисло является счастливым");
+        } else {
+            System.out.println("Сумма цифр sum != sum1: " + sum + " = " + sum1 
+                    + "\nЧисло неявляется счастливым");
         }
     }
 }
