@@ -52,7 +52,6 @@ public class Test_3_9 {
         int num1 = num;
         int sum = 0;
         int sum1 = 0;
-        int digit = num % 10;
         int count = 0;
         while (num1 != 0) {
             num1 /= 10;

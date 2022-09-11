@@ -4,7 +4,9 @@ public class Test_3_10 {
         //for( int i = 2; i <= 9; i++) {
             //System.out.printf("%3d", i);
         //}
-        int count = 0;
+
+
+        /*int count = 0;
         System.out.println();
         for( int i = 1; i < 10; i++){
             if(count == 1) {
@@ -23,6 +25,33 @@ public class Test_3_10 {
                 System.out.printf("%3d", i * j);
             }
             count++;
+            System.out.println();
+        }*/
+        //int i = 0;
+        //int j = 0;
+
+        for (int i = 1; i < 10; i++) {
+            if(i == 2) {
+                System.out.println(" ______________________________");
+            }
+            for (int j = 1; j < 10; j++)
+                if(j == 1) {
+                    System.out.printf("%4d %1s", i * j, (char) 124);
+                } else {
+                    System.out.printf("%3d", i * j);
+                }
+            System.out.println();
+        }
+
+        System.out.print("\tТАБЛИЦА ПИФАГОРА 111 " + "\n   ");
+        for (int i = 2; i <= 9; i++) {
+            System.out.printf("%3d", i);
+        }
+        System.out.println();
+        for (int i = 2; i < 10; i++) {
+            for(int j = 1; j < 10; j++) {
+                System.out.printf("%3d %1s", i * j, (char) 124);
+            }
             System.out.println();
         }
 
