@@ -29,6 +29,33 @@ public class Test_3_9 {
             //count1++;
         //}
 
+
+
+        num = 4664;
+        copyNum = num;
+        int digit = 0;
+        int digitNum = 0;
+        count = 0;
+        while (copyNum != 0) {
+            copyNum /= 10;
+            count++;
+        }
+        for ( int i = 0; i < (count / 2) && num > 0; i++) {
+            digit += num % 10;
+            num /= 10;
+            digitNum += num % 10;
+            num /= 10;
+        }
+        if (digit == digitNum) {
+            System.out.println("Сумма цифр digit = digitNum: " + digit + " = " + digitNum 
+                    + "\nЧисло является счастливым");
+        } else {
+            System.out.println("Сумма цифр digit != digitNum: " + digit + " = " + digitNum 
+                    + "\nЧисло неявляется счастливым");
+        }
+
+        
+
         int num = 7575;
         int sum = 0;
         int sum1 = 0;
@@ -110,7 +137,7 @@ public class Test_3_9 {
                     + "\nЧисло является счастливым");
         } else {
             System.out.println("Сумма цифр sumDigits != sumDigits1: " + sumDigits + " = " + sumDigits1 
-                    + "\nЧисло неявляется счастливым");
+                    + "\nЧисло не является счастливым");
         }
 
     }

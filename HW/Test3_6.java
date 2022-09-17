@@ -182,8 +182,37 @@ public class Test3_6{
         } while (n);*/
 
 
+        /*int repeats = 3;
+        int line = -repeats + 1;
+        do {
+
+            
+            int Symbol = 1;
+            int countRepeats = line;
+            if (countRepeats < 0) {
+                countRepeats = -countRepeats;
+            }
+
+
+            do {
+                System.out.print("*");
+                ++Symbol;
+            } while (Symbol <= repeats - countRepeats);
+
+
+                ++line;
+                System.out.println();
+
+
+        } while (line <= repeats - 1);
+
+
+
+        System.out.println();
         int repeats = 3;
         int countLines = -repeats + 1;
+
+
         do {
             int countSymbols = 1;
             int countRepeats = countLines;
@@ -197,6 +226,42 @@ public class Test3_6{
                 ++countLines;
                 System.out.println();
         } while (countLines <= repeats - 1);
+
+
+
+
+        i = 1;
+        j = 1;
+        do {
+            do {
+                System.out.print("$");
+                if(i <= 3) {
+                    j++;
+                    
+                } else {
+                    j--;
+                }
+            } while(j <= 3);
+            i++;
+            System.out.println();
+        } while(i < 6);*/
+
+
+        int i = 5;
+        int j = 0;
+        do {
+            if (i < 3) {
+                j = i;
+            } else {
+                j = 6 - i; //1, 2,
+            }
+            do {
+                System.out.print("*");
+                j--;       // *\* *
+            } while(j > 0);// 0,/ 1, 0
+            System.out.println();
+            i--; // 4
+        } while(i > 0);
 
 
     }

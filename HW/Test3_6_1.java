@@ -1,6 +1,6 @@
 public class Test3_6_1 {
     public static void main(String [] args){
-      int R = 3; // get this parameter from user or whatever
+      /*int R = 3; // get this parameter from user or whatever
       int r = -R+1;
       while (r <= R-1) {
           int i = 1;
@@ -16,7 +16,7 @@ public class Test3_6_1 {
       }
 
 
-      /*int R = 3;
+      int R = 3;
       int r = -R + 1;
       do {
           int i = 1;
@@ -31,6 +31,22 @@ public class Test3_6_1 {
           System.out.println(" ");
           ++r;
       } while (r <= R - 1);*/
+
+      int i = 5;
+      int j = 0;
+        do {
+            if(i < 3) {
+               j = i; //  2, 1
+            } else {
+                j = 6-i; // 1, 2, 3\
+            }    
+            do {
+                System.out.print("*");
+                j--;        //* \ * * \ * * * \ * * \ *
+            } while(j > 0); // 0\ 1, 0\ 2, 1 , 0\ 1, 0\ 0
+            System.out.println();
+            i--; // 4, 3, 2, 1
+        } while(i > 0);
   }
 }
 
