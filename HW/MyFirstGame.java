@@ -6,19 +6,23 @@ public class MyFirstGame {
         
         while (neugadal) {
             int count = 0;
-            if (count % 2 == 0) {
-                for (int i = 1; i <= 100; i += 3) {
-
-            }
-                    playerNum = i
+            for( int i=count;i<100;++i ){
+                for( int j=count;j<i;++j ){
+                    if( i % j == 0 ){
+                    break;
+                    }
                 }
-            
-             
+                if( i == j ){
+                    System.out.println("i = " + i);;
+                }
+            }
             if (computerNum < playerNum) {
                 System.out.println("Вы не угадали, загаданное число меньше! Попытайтесь еще раз!");
+                playerNum--;
             }
             if (computerNum > playerNum) {
                 System.out.println("Вы не угадали, загаданное число больше! Попытайтесь еще раз!");
+                playerNum++;
             }
             if (playerNum == computerNum) {
                 System.out.println("Вы угадали, поздравляю!");
@@ -26,6 +30,5 @@ public class MyFirstGame {
             }
             count++;
         }
-
     }
 }
