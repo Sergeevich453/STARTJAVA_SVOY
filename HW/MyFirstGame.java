@@ -1,34 +1,57 @@
 public class MyFirstGame {
     public static void main(String [] args){
-        int computerNum = 50;
-        int playerNum = 50;
+        int computerNum = 99;
+        int playerNum = 60;
         boolean neugadal = true;
-        
+        int count = 0;
+
         while (neugadal) {
-            int count = 0;
-            for( int i=count;i<100;++i ){
-                for( int j=count;j<i;++j ){
-                    if( i % j == 0 ){
-                    break;
-                    }
-                }
-                if( i == j ){
-                    System.out.println("i = " + i);;
-                }
+            playerNum = 50 - count;
+            if (playerNum < 1) {
+                count = 100;
+            } else if (playerNum > 100) {
+                count = 1;
             }
-            if (computerNum < playerNum) {
+
+            if (playerNum > computerNum) {
+                System.out.println("Вы не угадали, загаданное число меньше! Попытайтесь еще раз!" + playerNum);
+                count--;
+            }
+
+            if (playerNum < computerNum) {
+                System.out.println("Вы не угадали, загаданное число больше! Попытайтесь еще раз!" + playerNum);
+                count++;
+            }
+
+            if (playerNum == computerNum) {
+                System.out.println("Вы угадали, поздравляю!");
+                neugadal = false;
+            }
+            
+        }
+        System.out.println("count = " + count);
+
+    }
+}
+
+        /*while (neugadal) {
+            if (playerNum < computerNum) {
+                count++;
+                playerNum = playerNum + count;
                 System.out.println("Вы не угадали, загаданное число меньше! Попытайтесь еще раз!");
-                playerNum--;
             }
-            if (computerNum > playerNum) {
+            if (playerNum > computerNum) {
+                count--;
+                playerNum = playerNum - count;
                 System.out.println("Вы не угадали, загаданное число больше! Попытайтесь еще раз!");
-                playerNum++;
+            }
+            if (playerNum < 1) {
+                count = 100;
+            } else if (playerNum > 100) {
+                count = 1;
             }
             if (playerNum == computerNum) {
                 System.out.println("Вы угадали, поздравляю!");
                 neugadal = false;
             }
-            count++;
-        }
-    }
-}
+        }*/
