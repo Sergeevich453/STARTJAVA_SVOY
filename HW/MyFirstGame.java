@@ -1,12 +1,28 @@
 public class MyFirstGame {
     public static void main(String [] args){
-        int computerNum = 99;
-        int playerNum = 60;
+        int computerNum = 1;
+        int playerNumHigh = 100;
         boolean neugadal = true;
         int count = 0;
-
         while (neugadal) {
-            playerNum = 50 - count;
+            if (playerNumHigh > computerNum) {
+                System.out.println("Загаданное число меньше= " + playerNumHigh + " > " + computerNum);
+                playerNumHigh = playerNumHigh / 2;
+            } else if (playerNumHigh < computerNum) {
+                System.out.println("Загаданное число больше= " + playerNumHigh + " < " + computerNum); 
+                playerNumHigh = playerNumHigh + 1;
+            } else if (playerNumHigh == computerNum) {
+                neugadal = false;
+            }
+            count++;
+        }
+        System.out.println("Вы выиграли" + "\n число итераций: " + count + "\n Загаданное число: " 
+                + computerNum + "\n Число пользователя: " + playerNumHigh);
+    }
+}
+
+/*while (neugadal) {
+            playerNum = 2 - count;
             if (playerNum < 1) {
                 count = 100;
             } else if (playerNum > 100) {
@@ -29,10 +45,9 @@ public class MyFirstGame {
             }
             
         }
-        System.out.println("count = " + count);
+        System.out.println("count = " + count);*/
 
-    }
-}
+
 
         /*while (neugadal) {
             if (playerNum < computerNum) {
