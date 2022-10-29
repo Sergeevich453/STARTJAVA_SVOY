@@ -1,13 +1,6 @@
-public class Calculator {
-
-    int num1;
-    int num2;
-    int sign;
-
+public class TestTest {
+    public int A = 5;
     public int calculator(char sign, int num1, int num2) {
-        this.num1 = num1;
-        this.num2 = num2;
-        this.sign = sign;
         int result = 1;
         switch(sign) {
             case '+':
@@ -37,4 +30,3 @@ public class Calculator {
         return result;
     }
 }
-

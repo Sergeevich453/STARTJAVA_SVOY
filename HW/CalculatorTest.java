@@ -2,17 +2,35 @@ import java.util.Scanner;
 
 public class CalculatorTest {
 
-    public static void main(String [] args){
+    public static void main(String[] args) {
+        Scanner num = new Scanner(System.in);
+        Scanner sign = new Scanner(System.in);
+        Scanner str = new Scanner(System.in);
+        String N = "N";
+        String Y = "Y";
         Calculator b = new Calculator();
-        // int result = 1;
-        // Scanner s = new Scanner(System.in);
-        // Scanner scan = new Scanner(System.in);
-        // System.out.println("Введите первую цифру: ");
-        // int num1 = s.nextInt();
-        // System.out.println("Введите арифметический знак: ");
-        // char sign = scan.nextLine().charAt(0);
-        // System.out.println("Введите вторую цифру: ");
-        // int num2 = s.nextInt();
-        b.
-
+        boolean otv = true;
+        while (otv) {
+            System.out.println("Введите первую цифру: ");
+            int num1 = num.nextInt();
+            System.out.println("Введите арифметический знак: ");
+            char sign1 = sign.nextLine().charAt(0);
+            System.out.println("Введите вторую цифру: ");
+            int num2 = num.nextInt();
+            int otv = b.calculator(char sign, int num1, int num2);
+            System.out.println("Ответ: " + otv);
+            System.out.println("\nЖелаете продолжить? Да - нажмите Y" + "\n Нет - нажмите N");
+            String answer = str.nextLine();
+            System.out.println("answer: " + answer);
+            if (answer.equals(N)) {
+                otv = false;
+                System.out.println("Программа завершена!");
+            } else if (answer.equals(Y)) {
+                otv = true;
+            } else {
+                System.out.println("Вы ввели некорректный ответ");
+                otv = true;
+            }
+        }
+    }
 }
