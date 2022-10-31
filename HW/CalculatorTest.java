@@ -17,11 +17,9 @@ public class CalculatorTest {
             char sign1 = sign.nextLine().charAt(0);
             System.out.println("Введите вторую цифру: ");
             int num2 = num.nextInt();
-            int otv = b.calculator(char sign, int num1, int num2);
-            System.out.println("Ответ: " + otv);
+            System.out.println("Ответ: " + b.calculator(sign1, num1, num2));
             System.out.println("\nЖелаете продолжить? Да - нажмите Y" + "\n Нет - нажмите N");
             String answer = str.nextLine();
-            System.out.println("answer: " + answer);
             if (answer.equals(N)) {
                 otv = false;
                 System.out.println("Программа завершена!");

@@ -1,5 +1,7 @@
+import java.util.Scanner;
+
 public class TestTest {
-    public int A = 5;
+    
     public int calculator(char sign, int num1, int num2) {
         int result = 1;
         switch(sign) {
@@ -29,4 +31,5 @@ public class TestTest {
         }
         return result;
     }
+
 }
