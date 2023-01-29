@@ -1,4 +1,6 @@
-import java.util.*;
+/*
+Попытался выполнить проверку ввода, лучше ничего не сообразил, подскажите как правильней это сделать?
+*/
 import java.util.Scanner;
 
 public class CalculatorATest {
@@ -10,17 +12,15 @@ public class CalculatorATest {
         double num1 = 0;
         double num2 = 0;
         while(true) {
-            int count = 0;
+            int condition = 0;
             System.out.println("Введите первое число: ");
             if(input.hasNextDouble()) {
                 num1 = input.nextInt();
-                System.out.println("корректно1");
-                //break;
             } else {
                 System.out.println("Знак введен некорректно!");
-                break;
+                break; // применение continue приводит к зацикливанию, как произвести перезапуск цикла 
+                       //с этого места не соображу (((
             }
-
             System.out.println("Введите арифметический знак: ");
             String sign = input1.nextLine();
             if(sign.equals("+") | sign.equals("-") | sign.equals("/") | sign.equals("*") | sign.equals("%") 
@@ -32,21 +32,20 @@ public class CalculatorATest {
             System.out.println("Введите второе число: ");
             if(input.hasNextDouble()) {
                 num2 = input.nextInt();
-                System.out.println("корректно1");
-                //break;
             } else {
                 System.out.println("Знак введен некорректно!");
                 break;
             }
             System.out.println("Результат: " + calculator.calculator(num1, sign, num2));
             System.out.println("Ответьте yes если желаете продолжить или no");
-            
-                while(count == 0) {
+                while(true) {
                     String answer = input2.nextLine();
                     if(answer.equals("yes")) {
-                        count = 1;
+                        condition = 1;
+                        break;
                     }
                     else if(answer.equals("no")) {
+                        condition = 2;
                         break;
                     }
                     else {
@@ -54,6 +53,11 @@ public class CalculatorATest {
                         continue;
                     }
                 }
+            if(condition == 1) {
+                continue;
+            } else if(condition == 2) {
+                break;
+            }
         }
     }
 }

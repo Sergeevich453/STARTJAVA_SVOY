@@ -15,7 +15,7 @@ public class CalculatorA {
                     result = num1 + num2;
                     break;
                 case("^"):
-                    for(int i = 1; i <= num2; i++){
+                    for(int i = 1; i <= num2; i++) {
                         result = num1 * num1;
                     }
                     break;
@@ -31,4 +31,3 @@ public class CalculatorA {
 
 
 
-//Scanner input = new Scanner(System.in);
