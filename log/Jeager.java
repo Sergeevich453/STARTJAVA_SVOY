@@ -135,9 +135,9 @@ public class Jeager {
 
     public void win(String modelName1, int armor1, String modelName2, int armor2) {
         if(armor1 > armor2) {
-            System.out.println(modelName2.shout(modelName2) + "\nПобедителем становится " + modelName1 + "!!!");
+            System.out.println("\nПобедителем становится " + modelName1 + "!!!");
         } else if(armor2 > armor1) {
-            System.out.println(modelName1.shout(modelName1) + "\nПобедителем становится " + modelName2 + "!!!");
+            System.out.println("\nПобедителем становится " + modelName2 + "!!!");
         } else {
             System.out.println("НИЧЬЯ");
         }
@@ -147,10 +147,8 @@ public class Jeager {
         String winner;
         if(armor1 > armor2) {
             winner = modelName1;
-            //modelName2.shout(modelName2);
         } else if(armor2 > armor1) {
             winner = modelName2;
-            //modelName1.shout(modelName1);
         } else {
             winner = "draw";
         }
