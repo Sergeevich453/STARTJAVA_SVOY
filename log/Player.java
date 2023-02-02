@@ -1,9 +1,11 @@
 public class Player {
-    String name;
-    int age;
+
+    public String name; 
+    public int age;
+    
     public Player(String name, int age) {
-        this.name = name;
-        this.age = age;
+        // this.name = name;
+        // this.age = age;
     }
 }
 

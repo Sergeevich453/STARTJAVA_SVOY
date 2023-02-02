@@ -15,7 +15,7 @@ public class GuessNumberTest {
         // int playerAge2 = 30;
         Player player1 = new Player(playerName1, playerAge1);
         Player player2 = new Player(playerName2, playerAge2);
-        // System.out.println("player1: " + player1.name + " " + player1.age + "\nplayer2: " + player2.name + " " + player2.age);
+        System.out.println("player1: " + player1.name + " " + player1.age + "\nplayer2: " + player2.name + " " + player2.age);
         
     }
 }

@@ -1,21 +1,22 @@
 public class GuessNumber {
 
-    public void gameProcess(){
-        int computerNum = (int) ( Math.random() *(101 - 1) ) + 1;
-        if (player1 > computerNum) {
-                System.out.println("Загаданное число меньше= " + player1 + " > " + computerNum);                
-            } else if (player1 < computerNum) {
-                System.out.println("Загаданное число больше= " + player1 + " < " + computerNum); 
-            } else if (player1 == computerNum) {
-                neugadal = false;
-            }
-
+    public int computerMathNum() {
+        int computerNum = (int) ((Math.random()*(101 - 1)) + 1);
+        return computerNum;
     }
-    
+
+    public void gameProcess1(String playerName, int playerNum, int computerNum){
+        if (playerNum > computerNum) {
+                System.out.println("Число играка: " + playerName + " больше загаданного " + playerNum + " > " + computerNum);
+            } else if (playerNum < computerNum) {
+                System.out.println("Число играка: " + playerName + " меньше загаданного " + playerNum + " < " + computerNum);
+            } else if (playerNum == computerNum) {
+                System.out.println(playerName + "Выиграл!!!");
+            }
+    }
 }
 
 /*
-
 int computerNum = 1;
         int playerNumHigh = 100;
         boolean neugadal = true;
