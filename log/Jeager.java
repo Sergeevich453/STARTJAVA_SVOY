@@ -8,8 +8,8 @@ public class Jeager {
     int strength;
     int speed;
     int armor;
-    String weapon1; // = "Sting-Blades"  Plasmacaster
-    String weapon2; //  Chest launcher  Chain Sword
+    String weapon1;
+    String weapon2;
 
     public Jeager() {
     }
