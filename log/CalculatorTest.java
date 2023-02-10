@@ -23,14 +23,3 @@ public class CalculatorTest {
         }while (answer.equals("yes"));
     }
 }
-
-
-// if (answer.equals("no")) {
-//                 break;
-//                 System.out.println("Программа завершена!");
-//             } else if (answer.equals("yes")) {
-//                 continue;
-//             } else {
-//                 System.out.println("Вы ввели некорректный ответ");
-//                 otv = true;
-//             }

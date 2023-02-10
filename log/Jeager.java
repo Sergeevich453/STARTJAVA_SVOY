@@ -14,8 +14,8 @@ public class Jeager {
     public Jeager() {
     }
 
-    public Jeager(String modelName1, String mark1, String origin1, double height1, double weight1, int strength1, 
-            int speed1, int armor1, String weapon1, String weapon2) {
+    public Jeager(String modelName1, String mark1, String origin1, double height1, double weight1,
+            int strength1, int speed1, int armor1, String weapon1, String weapon2) {
         modelName = modelName1;
         mark = mark1;
         origin = origin1;
@@ -132,11 +132,10 @@ public class Jeager {
         System.out.println(modelName + " Применяет " + weapon1);
     }
 
-
     public void win(String modelName1, int armor1, String modelName2, int armor2) {
-        if(armor1 > armor2) {
+        if (armor1 > armor2) {
             System.out.println("\nПобедителем становится " + modelName1 + "!!!");
-        } else if(armor2 > armor1) {
+        } else if (armor2 > armor1) {
             System.out.println("\nПобедителем становится " + modelName2 + "!!!");
         } else {
             System.out.println("НИЧЬЯ");
@@ -145,9 +144,9 @@ public class Jeager {
 
     public String win2(String modelName1, int armor1, String modelName2, int armor2) {
         String winner;
-        if(armor1 > armor2) {
+        if (armor1 > armor2) {
             winner = modelName1;
-        } else if(armor2 > armor1) {
+        } else if (armor2 > armor1) {
             winner = modelName2;
         } else {
             winner = "draw";
@@ -168,6 +167,4 @@ public class Jeager {
     public void shout(String modelName) {
         System.out.println(modelName + " А-А-А-А-А-А-А-А!!!");
     }
-
-
 }

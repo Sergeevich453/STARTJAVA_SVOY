@@ -19,7 +19,6 @@ public class JeagerTest {
                 jeager1.getWeight() + "\n Speed: " + jeager1.getSpeed() + "\n Strength: " 
                 + jeager1.getStrength() + "\n Armor: " + jeager1.getArmor() + "\n Weapon1: " 
                 + jeager1.getWeapon1() + "\n Weapon2: " + jeager1.getWeapon2());
-
         System.out.println("Jeager2: \n " + jeager2.getModelName() + "\n Mark: " + jeager2.getMark() 
                 + "\n Origin: " + jeager2.getOrigin() + "\n Height: " + jeager2.getHeight() + "\n Weight: " + 
                 jeager2.getWeight() + "\n Speed: " + jeager2.getSpeed() + "\n Strength: " 
