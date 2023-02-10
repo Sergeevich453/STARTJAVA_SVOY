@@ -1,42 +1,39 @@
+import java.util.Scanner;
+
 public class GuessNumber {
+    public Player player1;
+    public Player player2;
+    public int numberComp;
+    Scanner guess = new Scanner(System.in);
 
-    public int computerMathNum() {
-        int computerNum = (int) ((Math.random()*(101 - 1)) + 1);
-        return computerNum;
-    }
-
-    public void gameProcess1(String playerName, int playerNum, int computerNum){
-        if (playerNum > computerNum) {
-                System.out.println("Число играка: " + playerName + " больше загаданного " + playerNum + " > " + computerNum);
-            } else if (playerNum < computerNum) {
-                System.out.println("Число играка: " + playerName + " меньше загаданного " + playerNum + " < " + computerNum);
-            } else if (playerNum == computerNum) {
-                System.out.println(playerName + "Выиграл!!!");
-            }
-    }
+    public GuessNumber(Player player1, Player player2) {
+        this.player1 = player1;
+        this.player2 = player2;
 }
 
-/*
-int computerNum = 1;
-        int playerNumHigh = 100;
-        boolean neugadal = true;
-        int count = 0;
-        while (neugadal) {
-            if (playerNumHigh > computerNum) {
-                System.out.println("Загаданное число меньше= " + playerNumHigh + " > " + computerNum);
-                playerNumHigh = playerNumHigh / 2;
-            } else if (playerNumHigh < computerNum) {
-                System.out.println("Загаданное число больше= " + playerNumHigh + " < " + computerNum); 
-                playerNumHigh = playerNumHigh + 1;
-            } else if (playerNumHigh == computerNum) {
-                neugadal = false;
+    public void game(Player player1, Player player2){
+        numberComp = (int) ((Math.random()*(101 - 1)) + 1);
+        while(true) {
+            System.out.println(player1.name + " Ведите свое число:");
+            int number = guess.nextInt();
+            if (number > numberComp) {
+                    System.out.println("Число: " + number + " играка: " + player1.name + " больше загаданного компьютером");
+                } else if (number < numberComp) {
+                    System.out.println("Число: " + number + " играка: " + player1.name + " меньше загаданного компьютером");
+                } else if (number == numberComp) {
+                    System.out.println(player1.name + "Выиграл!!!");
+                    break;
+                }
+                System.out.println(player2.name + " Ведите свое число:");
+                number = guess.nextInt();
+            if (number > numberComp) {
+                    System.out.println("Число: " + number + " играка: " + player2.name + " больше загаданного компьютером");
+                } else if (number < numberComp) {
+                    System.out.println("Число: " + number + " играка: " + player2.name + " меньше загаданного компьютером");
+                } else if (number == numberComp) {
+                    System.out.println(player2.name + "Выиграл!!!");
+                    break;
             }
-            count++;
         }
-        System.out.println("Вы выиграли" + "\n число итераций: " + count + "\n Загаданное число: " 
-                + computerNum + "\n Число пользователя: " + playerNumHigh);
     }
 }
-
-
-*/
