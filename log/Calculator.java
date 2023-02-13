@@ -1,7 +1,7 @@
 public class Calculator {
     
-    public double calculator(char sign, int num1, int num2) {
-        int result = 1;
+    public double calculator(char sign, double num1, double num2) {
+        double result = 1;
         switch(sign) {
             case '+':
                 result = num1 + num2;
