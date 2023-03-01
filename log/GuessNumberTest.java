@@ -11,13 +11,14 @@ public class GuessNumberTest {
         String name2 = scaner.nextLine();
         Player player1 = new Player(name1);
         Player player2 = new Player(name2);
-        GuessNumber guessNum = new GuessNumber(player1, player2);
+        GuessNumber game = new GuessNumber();
         do {
-            guessNum.game(player1, player2);
+            game.start(player1, player2);
             do {
                 System.out.println("Хотите продолжить игру [yes / no]");
                 answer = scaner.nextLine();
-            }while(!answer.equals("yes") && !answer.equals("no"));
-        }while(answer.equals("yes"));
+            } while (!answer.equals("yes") && !answer.equals("no"));
+        } while (answer.equals("yes"));
     }
 }
+

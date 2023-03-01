@@ -1,5 +1,6 @@
 *.class
 Main.*
-*.class
 /out
 /Test
+HW/Homework
+HW/int i = 1
