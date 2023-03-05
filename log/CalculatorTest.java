@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class CalculatorTest {
-    
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Calculator calculator = new Calculator();
@@ -18,6 +18,6 @@ public class CalculatorTest {
                 System.out.println("\nЖелаете продолжить: [yes / no]");
                 answer = scan.next();
             } while (!answer.equals("yes") && !answer.equals("no"));
-        }while (answer.equals("yes"));
+        } while (answer.equals("yes"));
     }
 }
