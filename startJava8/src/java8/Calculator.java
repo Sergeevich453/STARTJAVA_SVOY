@@ -1,9 +1,7 @@
-package src.startjava.lesson_2_3.calculator;
+package java8;
 
 public class Calculator {
-
-    public double calculate(double num1, char sign, double num2) {
-        double result = 1;
+	public int calculate(int num1, char sign, int num2) {
         switch(sign) {
             case '+':
                 return num1 + num2;
@@ -14,18 +12,16 @@ public class Calculator {
             case '/':
                 return num1 / num2;
             case '^':
+                int result = 1;
                 for(int i = 1; i <= num2; i++) {
-                     result *= num1;
+                    result *= num1;
                 }
                 return result;
             case '%':
                 return num1 % num2;
-            default:
-                System.out.println("Вы ввели некорректное значение повторите попытку.");
+            default: 
+                System.out.println("Вы ввели некорректное значение. Повторите попытку.");
         }
-        return result;
+        return 0;
     }
 }
-// Тест проверка startJava8
-
-
