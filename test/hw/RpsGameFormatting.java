@@ -17,7 +17,7 @@ public class RpsGameFormatting {
     
     private static int generatePosition(String name1, Random r) {
             System.out.println("Ход " + name1 + ": ");
-            return r.nextInt();
+            return r.nextInt(100);
     }
     
     private static String defineSign(int position) {
@@ -25,9 +25,10 @@ public class RpsGameFormatting {
         
         if (position > 66) {
             sign = ROCK;
-        }
-        else if (position > 33) {
-            sign = ROCK;
+        } else if (position > 33) {
+            sign = SCISSORS;
+        } else {
+        	sign = PAPER;
         }
             return sign;
     }
@@ -44,19 +45,19 @@ public class RpsGameFormatting {
         System.out.println(sign);
     }
     
-    private static void defineWinner (String name1, String sign1, String name2, String sign2) {
+    private static void defineWinner(String name1, String sign1, String name2, String sign2) {
         if (sign1.equals(sign2)) {
         	System.out.println("\nПобедила дружба!");
         	return;
         }
 
-    boolean isName1Equal = sign1.equals(ROCK) && sign2.equals(SCISSORS) ||
-    		sign1.equals(SCISSORS) && sign2.equals(PAPER) ||
-    		sign1.equals(PAPER) && sign2.equals(ROCK);
+    boolean isName1Equal = (sign1.equals(ROCK) && sign2.equals(SCISSORS)) ||
+    		(sign1.equals(SCISSORS) && sign2.equals(PAPER)) ||
+    		(sign1.equals(PAPER) && sign2.equals(ROCK));
 
 	    if (isName1Equal) {
 	        System.out.println("\nПобедил - " + name1   );
-	    }else {
+	    } else {
 	        System.out.println("\nПобедил - " + name2);
 	    }
     }
@@ -70,7 +71,7 @@ public class RpsGameFormatting {
         int position =   generatePosition(name1, r);
         String sign1 = defineSign(position);
         showSigns(sign1);
-        // Ход второго игрока
+        	// Ход второго игрока
 	    position = generatePosition(name2, r);
 	    String sign2 = defineSign(position);
 	    showSigns(sign2);

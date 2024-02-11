@@ -1,4 +1,4 @@
-package startJava8.test;
+package startJava8.test;//222
 
 import java.util.Random;
 import java.util.Scanner;
