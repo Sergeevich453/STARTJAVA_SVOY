@@ -17,7 +17,7 @@ public class RpsGameFormatting {
     
     private static int generatePosition(String name1, Random r) {
             System.out.println("Ход " + name1 + ": ");
-            return r.nextInt(100);
+            return r.nextInt(1, 100);
     }
     
     private static String defineSign(int position) {
@@ -27,9 +27,7 @@ public class RpsGameFormatting {
             sign = ROCK;
         } else if (position > 33) {
             sign = SCISSORS;
-        } else {
-        	sign = PAPER;
-        }
+        } 
             return sign;
     }
     
