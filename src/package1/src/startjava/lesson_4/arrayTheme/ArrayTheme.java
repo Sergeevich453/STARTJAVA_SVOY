@@ -1,5 +1,7 @@
 package package1.src.startjava.lesson_4.arrayTheme;
 
+import javax.sql.rowset.serial.SQLOutputImpl;
+
 public class ArrayTheme {
 	
 	private static void revers() {
@@ -39,12 +41,27 @@ public class ArrayTheme {
 	
 	private static void composition() {
 		System.out.println("\n\t" + "ЗАДАНИЕ 2 \nПроизведение элементов "
-				+ "массива\n");				
+				+ "массива\n");
+		int sum = 0;
+		int array = 0;
+		String sign = " ";
+		int [] num = new int[10];
+		for (int i = 1; i < num.length; i++) {
+			num[i] = i;
+			sum = num[i] > 1 || num[i] > 8 ? sum + num[i - 1] : sum;
+			sign = num[i] < 9 ? " * " : " = R ";
+			array = num[i] > 1 || num[i] > 8 ? array = i ;
+			System.out.print(num[i] + sign);
+			
+		}
+		System.out.println("\nСумма = " + sum);
+		
 	}
 
 	public static void main(String[] args) {
 		ArrayTheme array = new ArrayTheme();		
-		array.revers();
+		//array.revers();
+		array.composition();
  	}
 
 }
