@@ -44,20 +44,46 @@ public class ArrayTheme {
 				+ "массива\n");
 		int sum = 0;
 		int array = 0;
+		int num1 = 0;
+		int count = 0;
 		String sign = " ";
 		int [] num = new int[10];
-		for (int i = 1; i < num.length; i++) {
+		for (int i = 0; i < num.length; i++) {
 			num[i] = i;
 			sum = num[i] > 1 || num[i] > 8 ? sum + num[i - 1] : sum;
-			sign = num[i] < num.length-1 ? " * " : " = R ";
-			//array = num[i] > 1 || num[i] > 8 ? array = i: array = i;
-			//System.out.print(num[array] + sign);			
-		}
-		for (int array1 : num) {
-			array1 = array1 > 1 || array1 < 8 ? 
+			
+			
 		}
 		
-		System.out.println("\nСумма = " + sum);
+		for (int i = 0; i < num.length; i++) {
+			
+			sign = num[i] < num.length-1 ? " * " : " = R ";
+			System.out.print(num[i] + " ");
+		}
+			
+		System.out.print("\nСумма = " + sum);
+			
+			
+		
+//		for (int i = 1; i < num.length; i++) {
+//			num[i] = i;
+//			sum = num[i] > 1 || num[i] > 8 ? sum + num[i - 1] : sum;
+//			
+			//sign = num[i] < num.length-1 ? " * " : " = R ";
+			//array = num[i] > 1 || num[i] > 8 ? array = i: array = i;
+			//System.out.print(num[array] + sign);			
+//		}
+//		for (int array1 : num) {
+//			array1 = array1 > 1 || array1 < 8 ?
+//			sign = array1 < num.length-1 ? " * " : " = R ";
+//			if (array1 == num[0] || array1 == num[9]) {
+//				continue;
+//			} else {				
+//				System.out.print(array1 + sign);
+//			}
+//		}
+		
+		//System.out.println("\nСумма = " + sum);
 		
 	}
 
