@@ -49,11 +49,14 @@ public class ArrayTheme {
 		for (int i = 1; i < num.length; i++) {
 			num[i] = i;
 			sum = num[i] > 1 || num[i] > 8 ? sum + num[i - 1] : sum;
-			sign = num[i] < 9 ? " * " : " = R ";
-			array = num[i] > 1 || num[i] > 8 ? array = i ;
-			System.out.print(num[i] + sign);
-			
+			sign = num[i] < num.length-1 ? " * " : " = R ";
+			//array = num[i] > 1 || num[i] > 8 ? array = i: array = i;
+			//System.out.print(num[array] + sign);			
 		}
+		for (int array1 : num) {
+			array1 = array1 > 1 || array1 < 8 ? 
+		}
+		
 		System.out.println("\nСумма = " + sum);
 		
 	}
