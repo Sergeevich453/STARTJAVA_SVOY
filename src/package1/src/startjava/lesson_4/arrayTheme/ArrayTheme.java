@@ -43,18 +43,51 @@ public class ArrayTheme {
 		System.out.println("\n\n\t" + "ЗАДАНИЕ 3 \nУдаление элементов массива\n");
 		double [] nums = new double[15];
 		int len = nums.length;
-		for (double i = 0.0; i < len - 1; i++) {
+		for (int i = 0; i < len - 1; i++) {
 			nums[i] = Math.random();
+		}
+		System.out.println("До обнуления: ");
+		soutArr(nums);
+		
+		int count = 0;
+		for (int i = 0; i < len; i++) {
+			if (nums[i] > nums[len / 2]) {
+				count ++;
+				nums[i] = 0;
+			}			
+		}
+		System.out.println("\nПосле обнуления: ");
+		soutArr(nums);
+		System.out.println("\nКоличество обнуленных ячеек: " + count);
+	}		
+		
+	private static void soutArr(double[] arr) {
+		for (int  i = 0; i < arr.length; i++) {
+			if (i == 8) {
+				System.out.println();
+			} 
+			System.out.printf("%.3f ", arr[i]);
+		}		
+	}
+	
+	private static void alfabetOutput() {
+		System.out.println("\n\n\t" + "ЗАДАНИЕ 4 \nВывод алфавита лесенкой\n");
+		char[] nums = new char[26];
+		int len = nums.length;
+		for (char i = '4'; i < len; i++) {
 			
 		}
-		
-		
 	}
+		
+	
 
 	public static void main(String[] args) {
 		ArrayTheme array = new ArrayTheme();		
-		revers();
-		composition();
+		//revers();
+		//composition();
+		//deleting();
+		alfabetOutput();
+		
  	}
 
 }
