@@ -21,25 +21,30 @@ public class ArrayTheme {
 	}
 	
 	private static void composition() {
-		System.out.println("\n\n\t" + "ЗАДАНИЕ 2 \nПроизведение элементов массива\n");		
-		String sign = " ";
-		int sum = 0;
+		System.out.println("\n\n\t" + "ЗАДАНИЕ 2 \nПроизведение элементов массива\n");
 		int [] nums = new int[10];
+		int len = nums.length;
 		for (int i = 0; i < nums.length; i++) {
 			nums[i] = i;
-		}	
+		}
 		
-		for (int i = 1; i < nums.length - 1; i++) {
+		
+		String sign = "";		
+		int sum = 1;
+		for (int i = 1; i < len - 1; i++) {
 			sum *= nums[i];
-			sign = nums[i] == nums.length - 2 ? " = R" : " * ";
-			System.out.print(nums[i] + sign);			
-		}		
+			sign = nums[i] != nums.length - 2 ? " * " : " = " + sum ;
+		System.out.print(nums[i] + sign);
+//		System.out.print(i + (i < len - 2 ? " * " : " = " + sum));
+		}	
 	}
 	
 	private static void deleting() {
 		System.out.println("\n\n\t" + "ЗАДАНИЕ 3 \nУдаление элементов массива\n");
-		double [] array = new double[15];
-		for (double i = 0.0; i < array.length - 1; i++) {
+		double [] nums = new double[15];
+		int len = nums.length;
+		for (double i = 0.0; i < len - 1; i++) {
+			nums[i] = Math.random();
 			
 		}
 		
@@ -49,7 +54,7 @@ public class ArrayTheme {
 	public static void main(String[] args) {
 		ArrayTheme array = new ArrayTheme();		
 		revers();
-//		array.composition();
+		composition();
  	}
 
 }
