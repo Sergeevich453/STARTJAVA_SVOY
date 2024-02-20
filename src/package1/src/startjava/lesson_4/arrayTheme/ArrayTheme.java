@@ -74,9 +74,53 @@ public class ArrayTheme {
 		System.out.println("\n\n\t" + "ЗАДАНИЕ 4 \nВывод алфавита лесенкой\n");
 		char[] nums = new char[26];
 		int len = nums.length;
-		for (char i = '4'; i < len; i++) {
+		for (int i = 90; i > len; i--) {
+			for (int j = 90; j >= i; j--) {
+				nums[i] = (char)(i-65);
+				System.out.print(nums[i] + " ");
+			}
+			System.out.println();
+		}	
+		
+		
+//		for (int i = 0; i < len; i++) {
+//			for (int j = 0; j <= i; j++) {
+//				nums[i] = (char)(i + 65);
+//				System.out.print(nums[i] + " ");
+//			}
+//			System.out.println();
+//		}
 			
-		}
+//			for (char j = 'Z'; j < i; j++ ) {
+//				nums[i] = j;
+//				System.out.print(nums[i] + " ");
+//			}
+			//System.out.println();
+		
+		
+		
+		
+//		int[] nums = new int[26];
+//		int len = nums.length;
+//		for (int i = 0; i < len; i++) {
+//			for (int j = 1; j < i; j++ ) {
+//				nums[i] = j;
+//				System.out.print(nums[i] + " ");
+//			}
+//			System.out.println();
+//		}
+//		
+//		
+		
+//		char[] nums = new char[26];
+//		int len = nums.length;
+//		for (int i = 1; i <= len; i++) {
+//			for (int j = 25; j > i; j-- ) {
+//				nums[i] = (char)j;
+//				System.out.print(nums[i] + " ");
+//			}
+//			System.out.println();
+//		}
 	}
 		
 	
