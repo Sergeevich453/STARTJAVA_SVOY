@@ -74,53 +74,36 @@ public class ArrayTheme {
 		System.out.println("\n\n\t" + "ЗАДАНИЕ 4 \nВывод алфавита лесенкой\n");
 		char[] nums = new char[26];
 		int len = nums.length;
-		for (int i = 90; i > len; i--) {
-			for (int j = 90; j >= i; j--) {
-				nums[i] = (char)(i-65);
+		for (int i = len - 1; i >= 0; i--) {
+			for (int j = len - 1; j >= i; j--) {
+				nums[i] = (char)(i + 65);
 				System.out.print(nums[i] + " ");
 			}
 			System.out.println();
 		}	
-		
-		
-//		for (int i = 0; i < len; i++) {
-//			for (int j = 0; j <= i; j++) {
-//				nums[i] = (char)(i + 65);
-//				System.out.print(nums[i] + " ");
-//			}
-//			System.out.println();
-//		}
+	}
+	
+	private static void fillingArr() {
+		System.out.println("\n\n\t" + "ЗАДАНИЕ 5 \nЗаполнение массива уникальными числами\n");
+		int[] nums = new int[39];
+		int len = nums.length;
+		int count = 0;
+		int count1 = 1;
+		for (int i = 0; i <= len - 1; i++) {
+			nums[i] = (int) (Math.random()*(99 - 60)) + 60;
 			
-//			for (char j = 'Z'; j < i; j++ ) {
-//				nums[i] = j;
-//				System.out.print(nums[i] + " ");
-//			}
-			//System.out.println();
-		
-		
-		
-		
-//		int[] nums = new int[26];
-//		int len = nums.length;
-//		for (int i = 0; i < len; i++) {
-//			for (int j = 1; j < i; j++ ) {
-//				nums[i] = j;
-//				System.out.print(nums[i] + " ");
-//			}
-//			System.out.println();
-//		}
-//		
-//		
-		
-//		char[] nums = new char[26];
-//		int len = nums.length;
-//		for (int i = 1; i <= len; i++) {
-//			for (int j = 25; j > i; j-- ) {
-//				nums[i] = (char)j;
-//				System.out.print(nums[i] + " ");
-//			}
-//			System.out.println();
-//		}
+			for ( int j = 0; j <= len - 1; j++) {
+				if (nums[i] == nums[j]) {
+					nums[i] = (int) (Math.random()*(99 - 60)) + 60;
+					count++;
+				} else {
+					count1++;
+				}
+			}
+			System.out.print(nums[i] + " ");
+		}
+		System.out.println("\n! " + count);
+		System.out.println("\n? " + count1);
 	}
 		
 	
@@ -130,8 +113,8 @@ public class ArrayTheme {
 		//revers();
 		//composition();
 		//deleting();
-		alfabetOutput();
-		
+		//alfabetOutput();
+		fillingArr();
  	}
 
 }
