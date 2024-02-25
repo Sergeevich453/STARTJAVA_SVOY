@@ -1,42 +1,40 @@
 package package1.src.startjava.lesson_4.arrayTheme;
 
+import java.util.Arrays;
+import java.util.Random;
+
 public class ArrayTesting {
 
 	public static void main(String[] args) {
-		System.out.println("\n\n3. Удаление элементов массива");
-        double[] realNums = new double[15];
-        int len = realNums.length;
+		 System.out.print("\n5. Заполнение массива уникальными числами");
+	        int[] uniqueNums = new int[30];
+	        int len = uniqueNums.length;
+	        Random random = new Random();
 
-        for (int i = 0; i < len; i++) {
-            realNums[i] = Math.random();
-        }
+	        uniqueNums[0] = random.nextInt(100) + 60;
+	        for (int i = 1; i < len; i++) {
+	            int randomNum = random.nextInt(100) + 60;
+	            for (int j = 0; j < i; j++) {
+	                if (randomNum == uniqueNums[j]) {
+	                    randomNum = -1;
+	                    i--;
+	                    break;
+	                }
+	            }
+	            if (randomNum != -1) {
+	                uniqueNums[i] = randomNum;
+	            }
+	        }
+	        Arrays.sort(uniqueNums);
+	        print(uniqueNums);
+	    }
 
-        System.out.println("До обнуления:");
-        print(realNums);
-
-        double middleCellValue = realNums[len / 2];
-        int countZeros = 0;
-        for (int i = 0; i < len; i++) {
-            if (realNums[i] > middleCellValue) {
-                realNums[i] = 0;
-                countZeros++;
-            }
-        }
-
-        System.out.println("После обнуления:");
-        print(realNums);
-        System.out.println("Количество обнуленных ячеек = " + countZeros);
-    }
-
-    private static void print(double[] array) {
-        for (int i = 0; i < array.length; i++) {
-            if (i == 8) {
-                System.out.println();
-            }
-            System.out.printf("%.3f ", array[i]);
-        }
-        System.out.println();
-
+	    private static void print(int[] array) {
+	        for (int i = 0; i < array.length; i++) {
+	            System.out.print(i % 10 == 0 ? "\n" : array[i] + " ");
+	        }
+	    }
 	}
+ 
 
-}
+
