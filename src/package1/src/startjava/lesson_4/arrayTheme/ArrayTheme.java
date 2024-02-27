@@ -1,9 +1,6 @@
 package package1.src.startjava.lesson_4.arrayTheme;
 
 import java.util.Arrays;
-import java.util.Random;
-
-import javax.sql.rowset.serial.SQLOutputImpl;
 
 public class ArrayTheme {
 	
@@ -27,8 +24,7 @@ public class ArrayTheme {
 		int len = nums.length;
 		for (int i = 0; i < nums.length; i++) {
 			nums[i] = i;
-		}
-		
+		}		
 		
 		String sign = "";		
 		int sum = 1;
@@ -36,7 +32,6 @@ public class ArrayTheme {
 			sum *= nums[i];
 			sign = nums[i] != nums.length - 2 ? " * " : " = " + sum ;
 		System.out.print(nums[i] + sign);
-//		System.out.print(i + (i < len - 2 ? " * " : " = " + sum));
 		}	
 	}
 	
@@ -82,32 +77,15 @@ public class ArrayTheme {
 			}
 			System.out.println();
 		}	
-	}
-	
-	private static void mathArr(int[] arr) {
-		for (int i = 0; i <= arr.length - 2; i++) {
-			arr[i] = (int) (Math.random()*(99 - 60)) + 60;
-		}
-	}
-	
-	private static int mathInt() {
-		int num = (int) (Math.random()*(99 - 60)) + 60;
-		return num;
-	}
-	
+	}	
 
 	private static void fillingArr() {
 		System.out.println("\n\n\t" + "ЗАДАНИЕ 5 \nЗаполнение массива уникальными числами\n");
 		int[] nums = new int[30];
 		int len = nums.length;
-//		Random random = new Random();
-///		int random = (int) (Math.random()*(99 - 60)) + 60;
-//		int count = 0;
-//		int count1 = 0;
-		
+
 		nums[0] = (int) (Math.random()*(99 - 60)) + 60;
-//		nums[0] = random.nextInt(60);
-		for (int i = 0; i <= len; i++) {
+		for (int i = 0; i <= len - 1; i++) {
 			int randomNum = (int) (Math.random()*(99 - 60)) + 60;
 			for ( int j = 0; j <= i; j++) {
 				if (randomNum == nums[j]) {
@@ -118,90 +96,24 @@ public class ArrayTheme {
 			}	
 			if (randomNum != -1) {
 				nums[i] = randomNum;
-			}	
+			}
 		}
-//		for (int arr: nums) {
-//			System.out.print(arr + " ");
-//		Arrays.sort(nums);
-//        print(nums);
-		}
+		
+		Arrays.sort(nums);
+		print(nums);
+		}		
+			
 	private static void print(int[] array) {
         for (int i = 0; i < array.length; i++) {
             System.out.print(i % 10 == 0 ? "\n" : array[i] + " ");
         }
-		
-//		nums[0] = (int) (Math.random()*(99 - 60)) + 60;
-//		for (int i = 0; i <= len - 1; i++) {
-//			int random = mathInt();
-//			for ( int j = 0; j <= len - 1; j++) {
-//				if (nums[i] == nums[j]) {
-//					i--;
-//					random = -1;
-//					break;
-//				}
-//			}	
-//			if (random != -1) {
-//				nums[i] = random;
-//			}
-//	//		System.out.print(nums[i] + " ");
-//		}
-//		for (int arr: nums) {
-//			System.out.print(arr + " ");
-//		}
-//				
-//		
-//		
-//		int count = 0;
-//		int count1 = 0;
-//		do {
-//			for (int i = 0; i <= len - 2; i++) {
-//				nums[i] = (int) (Math.random()*(99 - 60)) + 60;
-//			}
-//				do {
-//					for ( int j = 0; j <= len - 2; j++) {
-//						if (nums[j] == nums[j + 1]) {
-//							count++;							
-//						} else {
-//							count1++;
-//						}
-//					}
-//					System.out.println("count = " + count);
-//				} while (count == 0 || count1 == 0);			
-//		} while(count1 == 0);
-//		System.out.println("count = " + count + "\ncount1 = " + count1 + "\n");
-//		
-//		for (int arr: nums) {
-//			System.out.print(arr + " ");
-//		}
-		
-//		int count = 0;
-//		int count1 = 1;
-//		for (int i = 0; i <= len - 1; i++) {
-//			nums[i] = (int) (Math.random()*(99 - 60)) + 60;
-//			
-//			for ( int j = 0; j <= len - 1; j++) {
-//				if (nums[i] == nums[j]) {
-//					nums[i] = (int) (Math.random()*(99 - 60)) + 60;
-//					count++;
-//				} else {
-//					count1++;
-//				}
-//			}
-//			System.out.print(nums[i] + " ");
-//		}
-//		System.out.println("\n! " + count);
-//		System.out.println("\n? " + count1);
 	}
 	
-	
-
-	public static void main(String[] args) {
-		ArrayTheme array = new ArrayTheme();		
-		//revers();
-		//composition();
-		//deleting();
-		//alfabetOutput();
+	public static void main(String[] args) {		
+		revers();
+		composition();
+		deleting();
+		alfabetOutput();
 		fillingArr();
  	}
-
 }
