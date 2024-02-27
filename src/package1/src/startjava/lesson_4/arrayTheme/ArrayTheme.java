@@ -98,7 +98,7 @@ public class ArrayTheme {
 
 	private static void fillingArr() {
 		System.out.println("\n\n\t" + "ЗАДАНИЕ 5 \nЗаполнение массива уникальными числами\n");
-		int[] nums = new int[39];
+		int[] nums = new int[30];
 		int len = nums.length;
 //		Random random = new Random();
 ///		int random = (int) (Math.random()*(99 - 60)) + 60;
@@ -106,7 +106,8 @@ public class ArrayTheme {
 //		int count1 = 0;
 		
 		nums[0] = (int) (Math.random()*(99 - 60)) + 60;
-		for (int i = 0; i <= len - 1; i++) {
+//		nums[0] = random.nextInt(60);
+		for (int i = 0; i <= len; i++) {
 			int randomNum = (int) (Math.random()*(99 - 60)) + 60;
 			for ( int j = 0; j <= i; j++) {
 				if (randomNum == nums[j]) {
@@ -117,11 +118,17 @@ public class ArrayTheme {
 			}	
 			if (randomNum != -1) {
 				nums[i] = randomNum;
-			}	System.out.print(nums[i] + " ");
+			}	
 		}
-		for (int arr: nums) {
-			System.out.print(arr + " ");
+//		for (int arr: nums) {
+//			System.out.print(arr + " ");
+//		Arrays.sort(nums);
+//        print(nums);
 		}
+	private static void print(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(i % 10 == 0 ? "\n" : array[i] + " ");
+        }
 		
 //		nums[0] = (int) (Math.random()*(99 - 60)) + 60;
 //		for (int i = 0; i <= len - 1; i++) {
