@@ -1,6 +1,8 @@
 package package1.src.startjava.lesson_4.arrayTheme;
 
 import java.util.Arrays;
+import java.util.Optional;
+import java.util.OptionalInt;
 import java.util.Random;
 
 public class ArrayTesting {
@@ -11,6 +13,7 @@ public class ArrayTesting {
 		tableOutput();
 		calculateAverage();
 		checkingContent();
+		findIndexMain();
 		}
 	
 	private static void sortArr() {
@@ -56,6 +59,25 @@ public class ArrayTesting {
 		}
 	}
 	
+	private static void fillingArr(int[] arr) {
+		arr[0] = (int) (Math.random()*(99 - 60)) + 60;
+		for (int i = 0; i <  arr.length; i++) {
+			int randomNum = (int) (Math.random()*(99 - 60)) + 60;
+			for ( int j = 0; j <= i; j++) {
+				if (randomNum == arr[j]) {
+					i--;
+					randomNum = -1;
+					break;
+				}
+			}	
+			if (randomNum != -1) {
+				arr[i] = randomNum;
+			}
+		}
+		Arrays.sort(arr);
+		System.out.println("Массив: " + Arrays.toString(arr));
+	}
+	
 	private static void mathInitializingArr (int[] arr) {
 		for (int i = 0; i <= arr.length - 1; i++) { 
 			arr[i] = (int) (Math.random()*(99 - 60)) + 60;;
@@ -81,10 +103,8 @@ public class ArrayTesting {
 		System.out.println("\n\tМассивы Задача №5");
 		int[] numInt = new int[15];
 		int num = 75;
-		mathInitializingArr(numInt);
-		Arrays.sort(numInt);
-		System.out.println("Массив: " + Arrays.toString(numInt)  + " содержит заданное число? " 
-					+ num + " - " + contans(numInt, num));
+		fillingArr(numInt);
+		System.out.print(" содержит заданное число? " + num + " - " + contans(numInt, num));
 	}
 	
 	private static boolean contans(int[] arr, int item) {
@@ -95,10 +115,31 @@ public class ArrayTesting {
 		}
 		return false;
 	}
-
-		// добавить в метод checkingC -- метод из класса ArraTheme 5 задачи 
-
 	
+	private static OptionalInt findIndex(int[] arr, int t) {
+		if (arr == null) {
+			return OptionalInt.empty();
+		}
+		int len = arr.length;
+		int i = 0;
+		while (i < len) {
+			if (arr[i] == t) {
+				return OptionalInt.of(i);
+			} else {
+				i = 1 + i;
+			}			
+		}
+		return OptionalInt.empty();		
+	}
+	
+	private static void findIndexMain() {
+		System.out.println("\n\n\tМассивы Задача №6");
+		int[] nums = new int[30];
+		fillingArr(nums);		
+		findIndex(nums, 68).ifPresent(index -> System.out.println("Значения 68 в индексе " + index));
+		findIndex(nums, 97).ifPresent(index -> System.out.println("Значения 97 в индексе " + index));
+		findIndex(nums, 76).ifPresent(index -> System.out.println("Значения 76 в индексе " + index));
+	}
 }
  
 
