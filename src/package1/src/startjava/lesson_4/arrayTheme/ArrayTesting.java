@@ -14,7 +14,41 @@ public class ArrayTesting {
 		calculateAverage();
 		checkingContent();
 		findIndexMain();
+		removeElement();
+		copyArr();
+		insertElement();
 		}
+	
+	public static void initializingArr (int[] arr) {
+		for (int i = 0; i <= arr.length - 1; i++) {
+			arr[i] = i * i;
+		}
+	}
+	
+	public static void fillingArr(int[] arr) {
+		arr[0] = (int) (Math.random()*(99 - 60)) + 60;
+		for (int i = 0; i <  arr.length; i++) {
+			int randomNum = (int) (Math.random()*(99 - 60)) + 60;
+			for ( int j = 0; j <= i; j++) {
+				if (randomNum == arr[j]) {
+					i--;
+					randomNum = -1;
+					break;
+				}
+			}	
+			if (randomNum != -1) {
+				arr[i] = randomNum;
+			}
+		}
+		Arrays.sort(arr);
+		System.out.println("Массив: " + Arrays.toString(arr));
+	}
+	
+	public static void mathInitializingArr (int[] arr) {
+		for (int i = 0; i <= arr.length - 1; i++) { 
+			arr[i] = (int) (Math.random()*(99 - 60)) + 60;;
+		}
+	}
 	
 	private static void sortArr() {
 		System.out.println("\n\tМассивы Задача №1");
@@ -26,12 +60,6 @@ public class ArrayTesting {
 		Arrays.sort(myString);
 		System.out.println("После сортировки: " + Arrays.toString(myInt));
 		System.out.println("После сортировки: " + Arrays.toString(myString));
-	}
-	
-	private static void initializingArr (int[] arr) {
-		for (int i = 0; i <= arr.length - 1; i++) {
-			arr[i] = i * i;
-		}
 	}
 	
 	private static void sumArr() {
@@ -56,31 +84,6 @@ public class ArrayTesting {
 				System.out.printf("%2d ", + numInt[i][j]);
 			}
 			System.out.println();
-		}
-	}
-	
-	private static void fillingArr(int[] arr) {
-		arr[0] = (int) (Math.random()*(99 - 60)) + 60;
-		for (int i = 0; i <  arr.length; i++) {
-			int randomNum = (int) (Math.random()*(99 - 60)) + 60;
-			for ( int j = 0; j <= i; j++) {
-				if (randomNum == arr[j]) {
-					i--;
-					randomNum = -1;
-					break;
-				}
-			}	
-			if (randomNum != -1) {
-				arr[i] = randomNum;
-			}
-		}
-		Arrays.sort(arr);
-		System.out.println("Массив: " + Arrays.toString(arr));
-	}
-	
-	private static void mathInitializingArr (int[] arr) {
-		for (int i = 0; i <= arr.length - 1; i++) { 
-			arr[i] = (int) (Math.random()*(99 - 60)) + 60;;
 		}
 	}
 	
@@ -140,6 +143,42 @@ public class ArrayTesting {
 		findIndex(nums, 97).ifPresent(index -> System.out.println("Значения 97 в индексе " + index));
 		findIndex(nums, 76).ifPresent(index -> System.out.println("Значения 76 в индексе " + index));
 	}
+	
+	private static void removeElement() {
+		System.out.println("\n\n\tМассивы Задача №7");
+		int[] nums = new int[10];
+		System.out.println("Массив до удаления заданного индекса ");
+		fillingArr(nums);		
+		int removeIndex = 6;
+		for (int i = removeIndex; i < nums.length -1; i++) {
+			nums[i] = nums[i + 1];
+		}
+		System.out.println("Массив после удаления заданного индекса " + Arrays.toString(nums));
+	}	
+	
+	private static void copyArr() {
+		System.out.println("\n\n\tМассивы Задача №8");
+		int[] nums = new int[15];
+		int[] nums1 = new int[15];
+		fillingArr(nums);		
+		for (int i = 0; i < nums.length; i++) {
+			nums1[i] = nums[i];
+		}
+		System.out.println("Массив после копирования " + Arrays.toString(nums1)); 
+	}	
+	
+	private static void insertElement() {
+		System.out.println("\n\n\tМассивы Задача №9");
+		int[] nums = new int[15];
+		int newIndex = 2;
+		int newValue = 5;
+		fillingArr(nums);
+		for (int i = nums.length - 1; i > newIndex; i--) {
+			nums[i] = nums[i - 1];
+		}
+		nums[newIndex] = newValue;
+		System.out.println("Массив после изменения " + Arrays.toString(nums));
+	}	
 }
  
 
