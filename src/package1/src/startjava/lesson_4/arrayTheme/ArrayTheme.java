@@ -10,6 +10,7 @@ public class ArrayTheme {
 		deleting();
 		alfabetOutput();
 		fillingArr();
+		textOutput();
  	}
 	
 	private static void revers() {
@@ -119,9 +120,18 @@ public class ArrayTheme {
 		
 	private static void textOutput() {
 		System.out.println("\n\n\t" + "ЗАДАНИЕ 6 \nВывод текста с эффектом пишушей машинки\n");
+		String str = "Java — это C++, из которого убрали все пистолеты, ножи и дубинки.\r\n"
+				+ "— James Gosling";
 		char[] chs = new char[str.length()];
 		for (int i = 0; i < str.length(); i++) { 
 			chs[i] = str.charAt(i);
 			System.out.print(chs[i]);
+			try {
+				Thread.sleep(10);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}	
 	}
 }
