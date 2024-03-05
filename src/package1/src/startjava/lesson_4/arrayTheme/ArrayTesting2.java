@@ -5,10 +5,61 @@ import java.util.StringTokenizer;
 public class ArrayTesting2 {
 
 	public static void main(String[] args) throws InterruptedException { 
-		String str = "Java - это C++, из которого убрали все пистолеты, ножи и дубинки.\r\n"
+		String str = "Java - это C++, из которого убрали все пистолеты, ножи и дубинки.\n"
 				+ "- James Gosling";	
-		String[] str1 = new String[str.length()];
-
+		//String[] str1 = new String[str.length()];
+		printWith(str);
+		
+		
+	}
+	
+	private static void printWith(String text) {
+		final String[] str1 = text.split("[\\ \\-\\ \\.\\,\\\n\\\r]");
+		for (String textInfo: str1) {
+			System.out.println(textInfo);
+		}
+		String max = str1[0];
+		String min = str1[0];
+		for (int i = 0; i < str1.length-1; i++) {
+//			if (i + 1 > str1.length) {
+//				if (str1[i].length() > max.length()) {
+//					max = str1[i];
+//				}
+//				if (str1[i].length() < max.length()) {
+//					min = str1[i];
+//				}
+//			}
+			if (str1[i].length() > str1[i + 1].length()) {
+				if (str1[i].length() < str1[i + 1].length()) {
+					if (str1[i].length() < min.length() && str1[i] != " ") {
+					min = str1[i];					
+					}
+					if (str1[i + 1].length() > max.length())
+					max = str1[i + 1];
+					
+				}
+				
+				if (str1[i].length() > max.length()) {
+				max = str1[i];					
+				}
+				if (str1[i + 1].length() < min.length() && str1[i + 1] != " ")
+				min = str1[i + 1];
+				
+			} 
+			
+		}
+		System.out.println("\nmax = " + max + "\nmin = " + min);
+//		for (String st: textInfo1) {
+//			System.out.print(st);
+//			try {
+//				Thread.sleep(100);
+//			} catch (InterruptedException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//		}
+	}
+}
 		
 //		StringTokenizer st = new StringTokenizer(str);
 //		int i = 0;
@@ -43,7 +94,7 @@ public class ArrayTesting2 {
 //		for (int i = 0; i < str.length(); i++) { 
 //			chs[i] = str.charAt(i);
 //			System.out.print(chs[i]);
-		}
+		
 //		StringTokenizer st = new StringTokenizer(str);
 //		while (st.hasMoreTokens()) {
 //		    String token = st.nextToken();
@@ -83,4 +134,4 @@ public class ArrayTesting2 {
 //
 	
 
-}
+
