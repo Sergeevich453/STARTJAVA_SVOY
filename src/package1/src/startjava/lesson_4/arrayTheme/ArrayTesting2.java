@@ -21,33 +21,34 @@ public class ArrayTesting2 {
 		String max = str1[0];
 		String min = str1[0];
 		for (int i = 0; i < str1.length-1; i++) {
-//			if (i + 1 > str1.length) {
-//				if (str1[i].length() > max.length()) {
-//					max = str1[i];
-//				}
-//				if (str1[i].length() < max.length()) {
-//					min = str1[i];
-//				}
-//			}
-			if (str1[i].length() > str1[i + 1].length()) {
-				if (str1[i].length() < str1[i + 1].length()) {
-					if (str1[i].length() < min.length() && str1[i] != " ") {
-					min = str1[i];					
-					}
-					if (str1[i + 1].length() > max.length())
-					max = str1[i + 1];
-					
-				}
-				
+			if (i + 1 > str1.length) {
 				if (str1[i].length() > max.length()) {
-				max = str1[i];					
+					max = str1[i];
 				}
-				if (str1[i + 1].length() < min.length() && str1[i + 1] != " ")
-				min = str1[i + 1];
-				
-			} 
-			
+				if (str1[i].length() < max.length()) {
+					min = str1[i];
+				}
+			}	
+			 
+			if (str1[i].length() > str1[i + 1].length()) {
+				if (str1[i].length() < min.length()) {
+				min = str1[i];					
+				}
+				if (str1[i + 1].length() > max.length()) {
+				max = str1[i + 1];
+				}					
+			}
+			if (str1[i].length() < str1[i + 1].length()) {
+				if (str1[i].length() > max.length()) {
+					max = str1[i];					
+				}
+				if (str1[i + 1].length() < min.length()) {
+					min = str1[i + 1];
+				}	
+			}
 		}
+			
+		
 		System.out.println("\nmax = " + max + "\nmin = " + min);
 //		for (String st: textInfo1) {
 //			System.out.print(st);
@@ -57,8 +58,8 @@ public class ArrayTesting2 {
 //				// TODO Auto-generated catch block
 //				e.printStackTrace();
 //			}
-//		}
-	}
+		}
+	
 }
 		
 //		StringTokenizer st = new StringTokenizer(str);
