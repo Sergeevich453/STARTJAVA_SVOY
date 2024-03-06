@@ -1,6 +1,6 @@
 package package1.src.startjava.lesson_4.arrayTheme;
 
-import java.util.StringTokenizer;
+
 
 public class ArrayTesting2 {
 
@@ -25,27 +25,56 @@ public class ArrayTesting2 {
 				if (str1[i].length() > max.length()) {
 					max = str1[i];
 				}
-				if (str1[i].length() < max.length()) {
+				if (str1[i].length() < min.length()) {
 					min = str1[i];
 				}
 			}	
 			 
-			if (str1[i].length() > str1[i + 1].length()) {
-				if (str1[i].length() < min.length()) {
-				min = str1[i];					
+//			if (str1[i].length() > str1[i + 1].length()) {
+				if (str1[i +1].length() < min.length()) {
+//					min = str1[i + 1];					
 				}
-				if (str1[i + 1].length() > max.length()) {
-				max = str1[i + 1];
-				}					
-			}
-			if (str1[i].length() < str1[i + 1].length()) {
 				if (str1[i].length() > max.length()) {
-					max = str1[i];					
-				}
-				if (str1[i + 1].length() < min.length()) {
-					min = str1[i + 1];
-				}	
-			}
+					max = str1[i];
+				}					
+//			}
+//			if (str1[i].length() < str1[i + 1].length()) {
+//				if (str1[i].length() > max.length()) {
+//					max = str1[i];					
+//				}
+//				if (str1[i + 1].length() < min.length()) {
+//					min = str1[i + 1];
+//				}	
+//			}
+		}		
+				/////////////////////////////////
+				for (int i = 0; i < str1.length-1; i++) {
+//					if (i + 1 > str1.length) {
+//						if (str1[i].length() > max.length()) {
+//							max = str1[i];
+//						}
+//						if (str1[i].length() < max.length()) {
+//							min = str1[i];
+//						}
+//					}	
+					 
+//					if (str1[i].length() > str1[i + 1].length()) {
+//						if (str1[i].length() < min.length()) {
+//							min = str1[i];					
+//						}
+//						if (str1[i].length() > max.length()) {
+//							max = str1[i];
+//						}					
+//					}
+					if (str1[i].length() < str1[i + 1].length()) {
+///						if (str1[i].length() > max.length()) {
+//							max = str1[i];					
+///						}
+						if (str1[i + 1].length() < min.length()) {
+							min = str1[i + 1];
+						}	
+					}	
+				
 		}
 			
 		
