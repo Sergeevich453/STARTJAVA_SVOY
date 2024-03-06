@@ -6,91 +6,66 @@ public class ArrayTesting2 {
 
 	public static void main(String[] args) throws InterruptedException { 
 		String str = "Java - это C++, из которого убрали все пистолеты, ножи и дубинки.\n"
-				+ "- James Gosling";	
+				+ "- James Gosling";
+		String anotherText = "Чтобы написать чистый код, мы сначала пишем грязный код, затем рефакторим "
+				+ "его.\n— Robert Martin";
 		//String[] str1 = new String[str.length()];
-		printWith(str);
+		printingTypewriter(str);
 		
 		
 	}
 	
-	private static void printWith(String text) {
-		final String[] str1 = text.split("[\\ \\-\\ \\.\\,\\\n\\\r]");
-		for (String textInfo: str1) {
-			System.out.println(textInfo);
+	private static void printingTypewriter(String text) {
+		String[] strArr = text.split("");
+			String short = findShortest(text);
+		for (String arr: strArr) {
+//			if (arr.length() == findLongest(text).length()) {
+//				System.out.print(arr.toUpperCase());
+//			} else {
+//				System.out.print(arr);
+//			}
+//			if (arr.length() == findShortest(text).length()) {
+//				System.out.print(arr.toUpperCase());
+//			}
 		}
+		
+	}
+	
+	private static String findLongest(String text) {
+		final String[] str1 = text.split("[\\-\\ \\—\\ \\.\\,\\\n\\\r]");
 		String max = str1[0];
-		String min = str1[0];
 		for (int i = 0; i < str1.length-1; i++) {
-			if (i + 1 > str1.length) {
-				if (str1[i].length() > max.length()) {
-					max = str1[i];
-				}
-				if (str1[i].length() < min.length()) {
-					min = str1[i];
-				}
-			}	
-			 
-//			if (str1[i].length() > str1[i + 1].length()) {
-				if (str1[i +1].length() < min.length()) {
-//					min = str1[i + 1];					
-				}
 				if (str1[i].length() > max.length()) {
 					max = str1[i];
 				}					
-//			}
-//			if (str1[i].length() < str1[i + 1].length()) {
-//				if (str1[i].length() > max.length()) {
-//					max = str1[i];					
-//				}
-//				if (str1[i + 1].length() < min.length()) {
-//					min = str1[i + 1];
-//				}	
-//			}
 		}		
-				/////////////////////////////////
-				for (int i = 0; i < str1.length-1; i++) {
-//					if (i + 1 > str1.length) {
-//						if (str1[i].length() > max.length()) {
-//							max = str1[i];
-//						}
-//						if (str1[i].length() < max.length()) {
-//							min = str1[i];
-//						}
-//					}	
-					 
-//					if (str1[i].length() > str1[i + 1].length()) {
-//						if (str1[i].length() < min.length()) {
-//							min = str1[i];					
-//						}
-//						if (str1[i].length() > max.length()) {
-//							max = str1[i];
-//						}					
-//					}
-					if (str1[i].length() < str1[i + 1].length()) {
-///						if (str1[i].length() > max.length()) {
-//							max = str1[i];					
-///						}
-						if (str1[i + 1].length() < min.length()) {
-							min = str1[i + 1];
-						}	
-					}	
-				
-		}
-			
-		
-		System.out.println("\nmax = " + max + "\nmin = " + min);
-//		for (String st: textInfo1) {
-//			System.out.print(st);
-//			try {
-//				Thread.sleep(100);
-//			} catch (InterruptedException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-		}
+// 		System.out.println("\nmax = " + max);
+		return max;
+	}
 	
+	private static String findShortest(String text) {
+		final String[] str1 = text.split("[\\-\\ \\—\\ \\.\\,\\\n\\\r]");
+		String min = str1[0];
+		for (int i = 0; i < str1.length-1; i++) {
+			if (str1[i].length() < str1[i + 1].length()) {
+				if (str1[i + 1].length() < min.length()) {
+					min = str1[i + 1];
+				}	
+			}				
+		}
+//		System.out.println("\nmin = " + min);
+		return min;
+	}
 }
-		
+
+//for (String st: textInfo1) {
+//System.out.print(st);
+//try {
+//	Thread.sleep(100);
+//} catch (InterruptedException e) {
+//	// TODO Auto-generated catch block
+//	e.printStackTrace();
+//}		
 //		StringTokenizer st = new StringTokenizer(str);
 //		int i = 0;
 //		while (st.hasMoreTokens()) { 
