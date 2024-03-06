@@ -16,40 +16,43 @@ public class ArrayTesting2 {
 	}
 	
 	private static void printingTypewriter(String text) {
-		String[] strArr = text.split("");
-			String short = findShortest(text);
-		for (String arr: strArr) {
-//			if (arr.length() == findLongest(text).length()) {
-//				System.out.print(arr.toUpperCase());
-//			} else {
-//				System.out.print(arr);
-//			}
-//			if (arr.length() == findShortest(text).length()) {
-//				System.out.print(arr.toUpperCase());
-//			}
+		String[] strArr = text.split("[\\-\\ \\—\\ \\.\\,\\\n\\\r]");
+		String[] strArr1 = text.split("");
+		String longest = findLongest(strArr);
+		String shortest = findShortest(strArr);
+		System.out.println(shortest + " == " + strArr1[1]);
+		for (int i = 0; i < strArr1.length; i++) {
+			if (longest.equals(strArr1[i])) {
+				System.out.print(strArr1[i].toUpperCase());
+			} else {
+				System.out.print(strArr1[i]);
+			}
+			if (shortest.equals(strArr1[i])) {
+				System.out.print(strArr1[i].toUpperCase());
+			}
 		}
 		
 	}
 	
-	private static String findLongest(String text) {
-		final String[] str1 = text.split("[\\-\\ \\—\\ \\.\\,\\\n\\\r]");
-		String max = str1[0];
-		for (int i = 0; i < str1.length-1; i++) {
-				if (str1[i].length() > max.length()) {
-					max = str1[i];
+	private static String findLongest(String[] text) {
+//		final String[] str1 = text.split("[\\-\\ \\—\\ \\.\\,\\\n\\\r]");
+		String max = text[0];
+		for (int i = 0; i < text.length-1; i++) {
+				if (text[i].length() > max.length()) {
+					max = text[i];
 				}					
 		}		
 // 		System.out.println("\nmax = " + max);
 		return max;
 	}
 	
-	private static String findShortest(String text) {
-		final String[] str1 = text.split("[\\-\\ \\—\\ \\.\\,\\\n\\\r]");
-		String min = str1[0];
-		for (int i = 0; i < str1.length-1; i++) {
-			if (str1[i].length() < str1[i + 1].length()) {
-				if (str1[i + 1].length() < min.length()) {
-					min = str1[i + 1];
+	private static String findShortest(String[] text) {
+//		final String[] str1 = text.split("[\\-\\ \\—\\ \\.\\,\\\n\\\r]");
+		String min = text[0];
+		for (int i = 0; i < text.length-1; i++) {
+			if (text[i].length() < text[i + 1].length()) {
+				if (text[i + 1].length() < min.length()) {
+					min = text[i + 1];
 				}	
 			}				
 		}
