@@ -20,7 +20,9 @@ public class ArrayTesting2 {
 		String[] strArr1 = text.split("");
 		String longest = findLongest(strArr);
 		String shortest = findShortest(strArr);
-		System.out.println(shortest + " == " + strArr1[1]);
+		for (String str: strArr) {
+			System.out.println(str);
+		}
 		for (int i = 0; i < strArr1.length; i++) {
 			if (longest.equals(strArr1[i])) {
 				System.out.print(strArr1[i].toUpperCase());
