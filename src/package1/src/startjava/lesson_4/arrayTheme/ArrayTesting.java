@@ -17,6 +17,7 @@ public class ArrayTesting {
 		removeElement();
 		copyArr();
 		insertElement();
+		maxMinArray();
 		}
 	
 	public static void initializingArr (int[] arr) {
@@ -178,7 +179,51 @@ public class ArrayTesting {
 		}
 		nums[newIndex] = newValue;
 		System.out.println("Массив после изменения " + Arrays.toString(nums));
-	}	
+	}
+	
+	
+	
+	private static void maxMinArray() {
+		System.out.println("\n\n\tМассивы Задача №10");
+		int max = 0;
+		int min = 0;
+		int[] arr = new int[3];
+		max = arr[0];
+		min = arr[0];
+		int len = arr.length;
+		mathInitializingArr(arr);
+		
+		for (int i = 0; i < len - 1; i++) {
+//			if (i + 1 > len) {
+//				if (arr[i] > max) {
+//					max = arr[i];
+//				}
+//				if (arr[i] < min) {
+//					min = arr[i];
+//				}
+//			}
+			if (arr[i] > arr[i + 1]) {
+				if (arr[i] > max) {
+					max = arr[i];
+				}
+				if (arr[i + 1] < min) {
+					min = arr[i + 1];
+				}
+			}
+			if (arr[i] < arr[i + 1]) {
+				if (arr[i] < min) {
+					min = arr[i];
+				}
+				if (arr[i + 1] > max) {
+					max = arr[i + 1];
+				}
+			}
+		}
+		System.out.println("Значение массива: " + Arrays.toString(arr));
+		System.out.println("Максимальное значение массива = " + max);
+		System.out.println("Минимальное значение массива = " + min);
+	}
+	
 }
  
 
