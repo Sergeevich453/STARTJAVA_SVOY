@@ -26,7 +26,7 @@ public class centuryFromYear {
 	
 
 	public static void main(String[] args) {
-		int year = 1700;
+		int year = 1725;
 		System.out.println(fromYear(year));
 		System.out.println(solution("abca"));
 

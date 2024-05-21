@@ -6,7 +6,7 @@ public class ClassicTest {
 	private int last = 0;
 	private int next = 1;
 	
-	public intStreat stream() {
+	public IntStream stream() {
 		return IntStream.generate(() -> {
 			int oldLast = last;
 			last = next;
