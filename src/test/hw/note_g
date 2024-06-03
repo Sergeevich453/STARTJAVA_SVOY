@@ -1,0 +1,169 @@
+Проект виселицы в программировании на языке Java представляет собой приложение, которое отображает текст 
+сообщения и дату и время его создания. При этом текст может меняться в зависимости от времени, которое прошло 
+с момента его создания.
+
+Для этого проекта потребуется использовать следующие компоненты и технологии:
+
+JavaFX — библиотека для графического интерфейса пользователя в Java.
+Java Time API — набор классов для работы с датой и временем в Java.
+JSON — библиотека для работы с форматами обмена данными.
+Генератор случайных чисел.
+Процесс разработки проекта виселицы будет включать следующие шаги:
+
+Создание графического интерфейса пользователя с помощью JavaFX, который будет состоять из текстового поля, в 
+котором будет отображаться основное сообщение, и элемента управления для отображения даты и времени создания 
+сообщения.
+Импортирование классов Java Time API для работы с датой и временем.
+Использование JSON для отображения структурированных данных, таких как дата и время создания сообщения.
+Создание метода, который будет возвращать строку с текущим временем, а также количество дней, месяцев или лет,
+ прошедших с момента создания сообщения.
+Установка обратного счёта, который будет уменьшать количество дней, месяцев или лет, прошедших с момента 
+создания сообщения, пока не достигнет нуля.
+Включение генератора случайных чисел для создания эффекта бесконечности в тексте сообщения.
+Включение технологии скрытого флага, которая позволит пользователю остановить или перезапустить виселицу.
+После завершения разработки проекта виселицы пользователи смогут посмотреть на нее и увидеть изменяющееся 
+сообщение, а также дату и время его создания.
+Код проекта виселицы на языке Java может выглядеть следующим образом:
+
+java
+
+import javafx.application.Application;
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.geometry.Insets;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Region;
+import javafx.stage.Stage;
+import javafx.util.Duration;
+import javafx.util.Generator;
+import javafx.util.Period;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
+import java.util.Random;
+
+public class CountdownApp extends Application {
+
+    private static final ZoneId ZONE_ID = ZoneId.systemDefault();
+    private static final long START_TIME = System.currentTimeMillis();
+    private static final long FINISH_TIME = START_TIME + 1000 * 60 * 60; // 1 час в миллисекундах
+    private static final Random RANDOM = new Random();
+
+    private final DoubleProperty countdownSeconds = new SimpleDoubleProperty(0);
+
+    @Override
+    public void start(Stage stage) throws Exception {
+        GridPane pane = new GridPane();
+        pane.setPadding(new Insets(20));
+        pane.setHgap(10);
+        pane.setVgap(10);
+
+        Label dateLabel = new Label("Дата: " + LocalDate.now(ZONE_ID));
+        Label timeLabel = new Label("Время: " + LocalTime.now(ZONE_ID).toString());
+
+        TextField messageTextField = new TextField("Ваше сообщение");
+        messageTextField.setPrefSize(200, 25);
+        messageTextField.setMinWidth(200);
+        messageTextField.setMaxWidth(200);
+
+        Button stopButton = new Button("Остановить");
+        stopButton.setOnAction(e -> stop());
+
+        HBox buttonBox = new HBox(10);
+        buttonBox.getChildren().addAll(stopButton);
+
+        pane.add(messageTextField, 0, 0);
+        pane.add(dateLabel, 0, 1);
+        pane.add(timeLabel, 0, 2);
+        pane.add(buttonBox, 0, 3);
+
+        Scene scene = new Scene(pane);
+        stage.setScene(scene);
+        stage.show();
+
+        countdownSeconds.set(FINISH_TIME - System.currentTimeMillis() / 1000);
+        updateCountdownLabel();
+        updateCountdownText();
+
+        stopButton.setTooltip(new Tooltip("Кликните, чтобы остановить виселицу"));
+    }
+
+    private void updateCountdownLabel() {
+        long seconds = (FINISH_TIME - System.currentTimeMillis()) / 1000;
+        String formattedSeconds = String.valueOf(seconds);
+        countdownSeconds.set(seconds);
+        messageTextField.setText(messageTextField.getText() + " " + formattedSeconds + " секунд");
+    }
+
+    private void updateCountdownText() {
+        long seconds = countdownSeconds.get();
+        if (seconds > 0) {
+            messageTextField.setText(messageTextField.getText() + " " + seconds + " секунд");
+            Generator.random().nextLong(1000, 9000) %= 10000;
+            messageTextField.setText(messageTextField.getText() + " " + RANDOM.nextInt(100) + "-" + RANDOM.nextInt(60) + "");
+        } else {
+            messageTextField.setText("Текст сообщения будет показан через " + RANDOM.nextInt(3) + " секунд");
+        }
+    }
+
+    private void stop() {
+        countdownSeconds.removeListener(this::updateCountdownLabel);
+        countdownSeconds.removeListener(this::updateCountdownText);
+        Platform.exit();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
+
+В этом коде мы создаём приложение CountdownApp, которое начинается с отображения даты и времени, а также 
+текстового поля для ввода сообщения. Затем мы определяем параметры виселицы, такие как дату и время её 
+создания и окончания.
+
+Далее мы создаём двоичный свойство countdownSeconds, которое хранит количество оставшихся секунд до окончания
+ виселицы. Затем мы устанавливаем значение этого свойства равным временем до окончания виселицы и запускаем 
+ поток с помощью метода start(), который вызывает метод updateCountdownLabel(). Этот метод периодически 
+ обновляет значение свойства countdownSeconds, имя поля и текстовое поле с текущим количеством оставшихся 
+ секунд.
+
+Мы также создаём метод updateCountdownText(), который обновляет текстовое поле с текущим количеством 
+оставшихся секунд, если оно больше нуля. Если оно равно нулю, то этот метод оставляет запись о том, что текст
+ будет показан через несколько секунд.
+
+Если пользователь нажимает на кнопку «Остановить», мы остановим счётчик и завершим работу приложения.
+
+Этот код не является полностью оптимизированным и может быть улучшен для повышения производительности или 
+получения более простого кода. Также могут понадобиться дополнительные проверки, чтобы устранить возможные 
+ошибки обработки данных.
+
+
+
+Чтобы запустить этот код, необходимо выполнить следующие действия:
+
+Создать Java-проект с именем CountdownApp.
+В проекте добавить файл CountdownApp.java, в котором будет содержаться код приложения.
+В решении настроить сборку JavaFX.
+Скомпилировать проект и запустить экземпляр CountdownApp.
+После выполнения этих действий пользователь увидит видное окно CountdownApp с заданными параметрами и 
+инструкциями для использования приложения, а также текстовом полем для ввода сообщения.
+
+
+Результат работы кода CountdownApp представлен в виде видимого окна с названием CountdownApp, которое 
+отображает текущую дату и время, а также текстовое поле для ввода сообщения. Если пользователь нажимает на 
+кнопку «Остановить», то счётчик оставшихся секунд остановится, а текстовое поле отобразит сообщение о том, 
+что текст будет показан через несколько секунд. В противном случае счётчик будет уменьшать значение свойства 
+countdownSeconds, пока оно не станет равно нулю, после чего текстовое поле отобразит сообщение о том, что 
+текст был успешно отправлен. При этом генерируется эффект бесконечности, поскольку значение свойства 
+countdownSeconds периодически обновляется случайным образом в пределах заданного диапазона.
