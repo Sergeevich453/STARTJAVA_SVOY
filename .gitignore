@@ -4,5 +4,6 @@ Main.*
 /Test
 HW/Homework
 HW/int i = 1
+.sublimelinterrc
 
 /bin/
