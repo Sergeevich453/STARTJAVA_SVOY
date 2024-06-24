@@ -1,4 +1,4 @@
-package package1.src.startjava.lesson_4.arrayTheme;
+package package1.src.startjava.lesson_4.arraytheme;
 
 public class TextFormatting {
     public static void main(String[] args) {
