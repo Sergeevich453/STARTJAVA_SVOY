@@ -1,5 +1,7 @@
 package test.hw.gptrepetitor;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Scanner;
 
 public class PrimeNumbers {    
@@ -32,6 +34,9 @@ public class PrimeNumbers {
         findDuplicates(arrayNum);
         String[] strings = {"apple", "banana", "cherry", "apple", "date", "banana", "apple"};
         findStringDuplicate(strings);
+        String[] array1 = {"Python", "JAVA", "PHP", "C#", "C++", "SQL", "Oracle"};
+        String[] array2 = {"MySQL", "SQL", "SQLite", "Oracle", "PostgreSQL", "DB2", "JAVA"};
+        findCommonElements(array1, array2);
     }
     
     public static boolean isPrime(final int number) {
@@ -100,5 +105,19 @@ public class PrimeNumbers {
                 }
             }
         }
+    }
+    
+    public static void findCommonElements(String[] array1, String[] array2) {
+        System.out.println("Первый массив: " + Arrays.toString(array1));
+        System.out.println("Второй массив: " + Arrays.toString(array2));
+        HashSet<String> set = new HashSet<>();
+        for (int i = 0; i < array1.length; i++) {
+            for (int j = 0; j < array2.length; j++) {
+                if (array1[i].equals(array2[j])) {
+                    set.add(array1[i]); 
+                }
+            }
+        }
+        System.out.println("Повторяющиеся элементы: " + (set));
     }
 }
