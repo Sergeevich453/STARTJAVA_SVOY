@@ -37,6 +37,7 @@ public class PrimeNumbers {
         String[] array1 = {"Python", "JAVA", "PHP", "C#", "C++", "SQL", "Oracle"};
         String[] array2 = {"MySQL", "SQL", "SQLite", "Oracle", "PostgreSQL", "DB2", "JAVA"};
         findCommonElements(array1, array2);
+        unique_array(new int[] {0, 3, 6, 4, 7, 8, 3, 6, 7});
     }
     
     public static boolean isPrime(final int number) {
@@ -119,5 +120,27 @@ public class PrimeNumbers {
             }
         }
         System.out.println("Повторяющиеся элементы: " + (set));
+    }
+    
+    public static void unique_array(int[] array) {
+        System.out.println("Полный массив: ");
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + ", ");
+        }
+        int noUniqueElements = array.length;
+        for (int i = 0; i < noUniqueElements; i++) {
+            for (int j = i + 1; j < noUniqueElements; j++) {
+                if (array[i] == array[j]) {
+                    array[j] = array[noUniqueElements - 1];
+                    noUniqueElements--;
+                    j--;
+                }
+            }
+        }
+        int[] arrayUnique = Arrays.copyOf(array, noUniqueElements);
+        System.out.println("Массив с уникальными значениями: ");
+        for (int i = 0; i < arrayUnique.length; i++) {
+            System.out.print(arrayUnique[i] + ", ");
+        }
     }
 }
