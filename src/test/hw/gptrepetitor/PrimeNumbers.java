@@ -3,6 +3,7 @@ package test.hw.gptrepetitor;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class PrimeNumbers {    
     public static void main(final String[] args) {
