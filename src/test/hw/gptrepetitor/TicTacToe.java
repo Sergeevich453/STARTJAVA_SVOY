@@ -13,7 +13,6 @@ public class TicTacToe {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        
     }
     
     public static void startGameRound() {
@@ -40,13 +39,12 @@ public class TicTacToe {
     
     public static int [] inputBoardCoordinates() {
         System.out.println("Ввдите коордиаты через пробел (0 - 2)");
-        
+
         do {
             String[] input = scanner.nextLine().split(CELL_STATE_EMPTY);
             int row = Integer.parseInt(input[0]);
             int col = Integer.parseInt(input[1]);
-        } while(true);    
-        
+        } while (true);
     }
     
     public static void makeBotTurn() {
