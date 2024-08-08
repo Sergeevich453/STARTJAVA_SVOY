@@ -2,6 +2,7 @@ package test.hw.gptrepetitor;
 
 import java.util.Iterator;
 import java.util.Objects;
+import java.util.Random;
 import java.util.Scanner;
 
 public class TicTacToe {
@@ -10,15 +11,16 @@ public class TicTacToe {
     private static String CELL_STATE_EMPTY = " ";
     private static String CELL_STATE_X = "X";
     private static String CELL_STATE_O = "O";
+    private static Random random = new Random(); 
     
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        String[][] board = createBoard();
-        board[0][0] = CELL_STATE_X;
-        inputCellCoordinates(board);
-        
-        System.out.println("Hello!");
+//        String[][] board = createBoard();
+//        board[0][0] = CELL_STATE_X;
+//        inputCellCoordinates(board);
+        startGameRound();
+//        System.out.println("Hello!");
     }
     
     public static void startGameRound() {
@@ -38,12 +40,23 @@ public class TicTacToe {
     }
     
     public static void startGameLoop(String[][] board) {
+        makePlayerTurn(board);
+        makeBotTurn(board);
+        
+        int a = 123;
+        
     }
     
     public static void makePlayerTurn(String[][] board) {
         int[] coordinates = inputCellCoordinates(board);
         
         board[coordinates[0]] [coordinates[1]] = CELL_STATE_X;
+    }
+    
+    public static void makeBotTurn(String[][] board) {
+        int[] coordinates = getRandomCellCoordinates(board);
+        
+        board[coordinates[0]] [coordinates[1]] = CELL_STATE_O;
     }
     
     public static int [] inputCellCoordinates(String[][] board) {
@@ -65,7 +78,15 @@ public class TicTacToe {
         } while (true);
     }
     
-    public static void makeBotTurn() {
+    public static int[] getRandomCellCoordinates(String[][] board) {        
+        do {
+        int row = random.nextInt(ROW_COUNT);
+        int col = random.nextInt(COL_COUNT);
+        if (Objects.equals(board[row][col], CELL_STATE_EMPTY)) {
+            return new int[] {row, col}; 
+        }
+        } while(true);
+        
     }
     
     public static void checkGameStarted() {
