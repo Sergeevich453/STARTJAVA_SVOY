@@ -41,22 +41,17 @@ public class TicTacToe {
     
     public static void startGameLoop(String[][] board) {
         makePlayerTurn(board);
+        printBoard(board);
+        System.out.println();
         makeBotTurn(board);
+        printBoard(board);
         
-        int a = 123;
         
     }
     
     public static void makePlayerTurn(String[][] board) {
         int[] coordinates = inputCellCoordinates(board);
-        
         board[coordinates[0]] [coordinates[1]] = CELL_STATE_X;
-    }
-    
-    public static void makeBotTurn(String[][] board) {
-        int[] coordinates = getRandomCellCoordinates(board);
-        
-        board[coordinates[0]] [coordinates[1]] = CELL_STATE_O;
     }
     
     public static int [] inputCellCoordinates(String[][] board) {
@@ -78,17 +73,36 @@ public class TicTacToe {
         } while (true);
     }
     
+    public static void makeBotTurn(String[][] board) {
+        System.out.println("Ход бота");
+        int[] coordinates = getRandomCellCoordinates(board);
+        board[coordinates[0]] [coordinates[1]] = CELL_STATE_O;
+    }
+    
     public static int[] getRandomCellCoordinates(String[][] board) {        
         do {
-        int row = random.nextInt(ROW_COUNT);
-        int col = random.nextInt(COL_COUNT);
-        if (Objects.equals(board[row][col], CELL_STATE_EMPTY)) {
-            return new int[] {row, col}; 
-        }
+            int row = random.nextInt(ROW_COUNT);
+            int col = random.nextInt(COL_COUNT);
+            if (Objects.equals(board[row][col], CELL_STATE_EMPTY)) {
+                return new int[] {row, col}; 
+            }
         } while(true);
         
     }
     
     public static void checkGameStarted() {
+    }
+    
+    public static void printBoard(String[][] board) {
+        System.out.println("---------");
+        for (int row = 0; row < ROW_COUNT; row++) {
+            String line = "| ";    
+            for (int col = 0; col < COL_COUNT; col++) {
+                line += board[row][col] + " ";
+            }
+            line += "|";
+            System.out.println(line);
+        }    
+        System.out.println("---------");
     }
 }
