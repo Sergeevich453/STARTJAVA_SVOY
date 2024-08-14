@@ -11,6 +11,11 @@ public class TicTacToe {
     private static String CELL_STATE_EMPTY = " ";
     private static String CELL_STATE_X = "X";
     private static String CELL_STATE_O = "O";
+    private static String GAME_STATE_X_WON = "X ПобедилИ";
+    private static String GAME_STATE_O_WON = "O Победили";
+    private static String GAME_STATE_DRAW = "Ничья";
+    private static String GAME_STATE_X_NOT_FINISHED = "Игра не закончена";
+    
     private static Random random = new Random(); 
     
     private static Scanner scanner = new Scanner(System.in);
