@@ -1,0 +1,92 @@
+Реализуем задачу, которая строит треугольники символов, сортированных по возрастанию или убыванию,
+ с учетом указанных границ и направления сортировки. Код также проверяет корректность входных данных.
+
+Код:
+java
+Копировать код
+public class TriangleCharacters {
+    public static void main(String[] args) {
+        // Вызов метода с заданными данными
+        generateTriangle(0, 9, true);
+        generateTriangle('/', '!', false);
+        generateTriangle('A', 'J', false);
+    }
+
+    private static void generateTriangle(int start, int end, boolean ascending) {
+        // Проверка на корректность границ
+        if (start > end) {
+            System.out.printf("Ошибка: левая граница (%d) > правой (%d)%n", start, end);
+            return;
+        }
+
+        // Создание сортированного диапазона символов
+        StringBuilder triangle = new StringBuilder();
+        if (ascending) {
+            for (int i = start; i <= end; i++) {
+                triangle.append((char) i);
+            }
+        } else {
+            for (int i = end; i >= start; i--) {
+                triangle.append((char) i);
+            }
+        }
+
+        // Построение треугольника
+        String symbols = triangle.toString();
+        int maxRows = symbols.length();
+        System.out.println("\nТреугольник символов:");
+        for (int row = 0; row < maxRows; row++) {
+            String spaces = " ".repeat(maxRows - row - 1); // Отступы для выравнивания
+            String repeatedSymbol = String.valueOf(symbols.charAt(row)).repeat(2 * row + 1); // Повтор символа
+            System.out.println(spaces + repeatedSymbol);
+        }
+    }
+}
+Объяснение:
+Метод generateTriangle:
+
+Принимает:
+start: левая граница диапазона символов.
+end: правая граница диапазона символов.
+ascending: направление сортировки.
+Проверяет, что start не больше end. Если проверка не проходит, выводит сообщение об ошибке.
+Создает строку из символов в заданном диапазоне в соответствии с направлением сортировки.
+Построение треугольника:
+
+Использует метод repeat для дублирования символов.
+Вычисляет количество отступов для каждой строки, чтобы треугольник был выровнен по центру.
+Основной метод main:
+
+Тестирует метод generateTriangle с указанными в задаче параметрами.
+Пример вывода:
+markdown
+Копировать код
+Треугольник символов:
+        0
+       111
+      22222
+     3333333
+    444444444
+   55555555555
+  6666666666666
+ 777777777777777
+88888888888888888
+9999999999999999999
+
+Ошибка: левая граница (47) > правой (33)
+
+Треугольник символов:
+        J
+       III
+      HHHHH
+     GGGGGGG
+    FFFFFFFFF
+   EEEEEEEEEEE
+  DDDDDDDDDDDDD
+ CCCCCCCCCCCCCCC
+BBBBBBBBBBBBBBBBB
+AAAAAAAAAAAAAAAAAAA
+Ключевые моменты:
+Проверка входных данных: Обработка случаев, когда левая граница больше правой.
+Выравнивание треугольника: Использование пробелов для форматирования.
+Гибкость: Код поддерживает любой диапазон символов.

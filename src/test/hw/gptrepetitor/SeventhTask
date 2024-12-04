@@ -1,0 +1,354 @@
+Ответ 1
+Вот пример реализации заданной структуры:
+
+1. Класс Arrays (логика задач):
+java
+Копировать код
+import java.util.*;
+
+public class Arrays {
+
+    private Arrays() {
+        // Приватный конструктор для предотвращения создания экземпляра класса
+    }
+
+    // Метод для реверса массива
+    public static int[] reverseArray(int[] array) {
+        if (array == null) return null;
+        for (int i = 0, j = array.length - 1; i < j; i++, j--) {
+            int temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+        return array;
+    }
+
+    // Метод для вычисления факториала
+    public static Long[] calculateFactorials(Integer... numbers) {
+        if (numbers == null || numbers.length == 0) return null;
+        List<Long> results = new ArrayList<>();
+        for (Integer num : numbers) {
+            if (num == null || num < 0) {
+                results.add(null); // Факториал отрицательных чисел не определён
+            } else {
+                long factorial = 1;
+                for (int i = 2; i <= num; i++) {
+                    factorial *= i;
+                }
+                results.add(factorial);
+            }
+        }
+        return results.toArray(new Long[0]);
+    }
+
+    // Метод для заполнения массива уникальными числами
+    public static int[] generateUniqueArray(int lower, int upper) {
+        if (lower > upper) throw new IllegalArgumentException("Ошибка: левая граница больше правой.");
+        int range = upper - lower + 1;
+        int size = (int) (range * 0.75);
+        if (size <= 0) throw new IllegalArgumentException("Ошибка: длина массива должна быть больше 0.");
+
+        Set<Integer> uniqueNumbers = new LinkedHashSet<>();
+        Random random = new Random();
+        while (uniqueNumbers.size() < size) {
+            uniqueNumbers.add(random.nextInt(range) + lower);
+        }
+        return uniqueNumbers.stream().mapToInt(Integer::intValue).toArray();
+    }
+
+    // Метод для формирования треугольника из символов
+    public static String generateTriangle(char start, char end, boolean ascending) {
+        if (start > end) throw new IllegalArgumentException("Ошибка: левая граница больше правой.");
+        StringBuilder triangle = new StringBuilder();
+        int count = 1;
+        List<Character> characters = new ArrayList<>();
+        for (char c = start; c <= end; c++) characters.add(c);
+        if (!ascending) Collections.reverse(characters);
+        for (Character c : characters) {
+            triangle.append(" ".repeat(Math.max(0, end - start - count + 1)));
+            triangle.append(String.valueOf(c).repeat(count)).append("\n");
+            count += 2;
+        }
+        return triangle.toString();
+    }
+}
+2. Класс Console (вывод в консоль):
+java
+Копировать код
+public class Console {
+
+    private Console() {
+        // Приватный конструктор для предотвращения создания экземпляра класса
+    }
+
+    // Метод для вывода текста с эффектом пишущей машинки
+    public static void printTypewriterEffect(String text) throws InterruptedException {
+        if (text == null || text.trim().isEmpty()) {
+            System.out.println("Ошибка: передана пустая строка или null.");
+            return;
+        }
+        for (char c : text.toCharArray()) {
+            System.out.print(c);
+            Thread.sleep(50);
+        }
+        System.out.println();
+    }
+
+    // Метод для вывода массива
+    public static void printArray(String message, int[] array) {
+        System.out.print(message + " ");
+        if (array == null) {
+            System.out.println("null");
+            return;
+        }
+        System.out.println(java.util.Arrays.toString(array));
+    }
+
+    // Метод для вывода списка факториалов
+    public static void printFactorials(String message, Long[] factorials) {
+        System.out.println(message);
+        for (int i = 0; i < factorials.length; i++) {
+            if (factorials[i] == null) {
+                System.out.printf("Ошибка: факториал %d! не определён%n", i);
+            } else {
+                System.out.printf("%d! = %d%n", i, factorials[i]);
+            }
+        }
+    }
+
+    // Метод для вывода треугольника
+    public static void printTriangle(String triangle) {
+        System.out.println(triangle);
+    }
+}
+3. Класс Main (запуск программы):
+java
+Копировать код
+public class Main {
+
+    public static void main(String[] args) throws InterruptedException {
+        // Пример 1: Реверс массива
+        int[] array = {6, 8, 9, 1};
+        Console.printArray("До реверса:", array);
+        array = Arrays.reverseArray(array);
+        Console.printArray("После реверса:", array);
+
+        // Пример 2: Факториалы
+        Long[] factorials = Arrays.calculateFactorials(8, 0, 9, -3, 1, 7, 13, -22, 0);
+        Console.printFactorials("Факториалы чисел:", factorials);
+
+        // Пример 3: Уникальный массив
+        int[] uniqueArray = Arrays.generateUniqueArray(-30, -10);
+        Console.printArray("Уникальный массив:", uniqueArray);
+
+        // Пример 4: Треугольник
+        String triangle = Arrays.generateTriangle('A', 'J', true);
+        Console.printTriangle(triangle);
+
+        // Пример 5: Эффект пишущей машинки
+        Console.printTypewriterEffect("Java - это язык программирования.");
+    }
+}
+Объяснение структуры:
+Класс Arrays:
+
+Содержит методы для реализации логики всех задач.
+Каждый метод возвращает результат, а не выводит данные.
+Класс Console:
+
+Предназначен исключительно для вывода данных на консоль.
+Форматирует и обрабатывает результаты, возвращённые методами из Arrays.
+Класс Main:
+
+Координирует взаимодействие между Arrays и Console.
+Содержит минимальный код для запуска программы.
+Приватные конструкторы:
+
+Предотвращают создание экземпляров классов Arrays и Console, так как это утилитные классы.
+Если хотите добавить больше примеров или задач — дайте знать! 😊
+
+Ответ 2
+Реализация задачи с утилитными классами приведена ниже. Мы создаем три класса: Arrays, Console, и Main.
+
+1. Класс Arrays
+Содержит логику выполнения задач. Здесь реализованы методы для каждой задачи.
+
+java
+Копировать код
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+public final class Arrays {
+
+    private Arrays() {
+        // Приватный конструктор для предотвращения создания экземпляра класса
+    }
+
+    public static char[][] generateTriangle(char start, char end, boolean ascending) {
+        if (start > end) {
+            throw new IllegalArgumentException("Ошибка: левая граница (" + start + ") > правой (" + end + ")");
+        }
+
+        int size = end - start + 1;
+        char[][] triangle = new char[size][];
+        for (int i = 0; i < size; i++) {
+            int level = ascending ? i + 1 : size - i;
+            triangle[i] = new char[level];
+            for (int j = 0; j < level; j++) {
+                triangle[i][j] = (char) (ascending ? start + i : end - i);
+            }
+        }
+        return triangle;
+    }
+
+    public static double[] randomArray(int count) {
+        if (count <= 0) {
+            throw new IllegalArgumentException("Ошибка: длина массива должна быть больше 0.");
+        }
+
+        Random random = new Random();
+        double[] array = new double[count];
+        for (int i = 0; i < count; i++) {
+            array[i] = random.nextDouble();
+        }
+        return array;
+    }
+
+    public static List<Integer> uniqueNumbers(int start, int end, int lineSize) {
+        if (start > end) {
+            throw new IllegalArgumentException("Ошибка: левая граница (" + start + ") > правой (" + end + ")");
+        }
+        if (lineSize <= 0) {
+            throw new IllegalArgumentException("Ошибка: количество чисел в строке не может быть меньше 1 (" + lineSize + ")");
+        }
+
+        int range = end - start + 1;
+        int length = (int) Math.round(0.75 * range);
+
+        if (length <= 0) {
+            throw new IllegalArgumentException("Ошибка: длина массива должна быть больше 0.");
+        }
+
+        List<Integer> uniqueNumbers = new ArrayList<>();
+        Random random = new Random();
+        while (uniqueNumbers.size() < length) {
+            int number = start + random.nextInt(range);
+            if (!uniqueNumbers.contains(number)) {
+                uniqueNumbers.add(number);
+            }
+        }
+        uniqueNumbers.sort(Integer::compareTo);
+        return uniqueNumbers;
+    }
+}
+2. Класс Console
+Содержит методы для вывода данных в консоль.
+
+java
+Копировать код
+public final class Console {
+
+    private Console() {
+        // Приватный конструктор для предотвращения создания экземпляра класса
+    }
+
+    public static void printArray(double[] array, int numbersPerLine) {
+        int count = 0;
+        for (double num : array) {
+            System.out.printf("%.3f ", num);
+            if (++count % numbersPerLine == 0) {
+                System.out.println();
+            }
+        }
+        System.out.println();
+    }
+
+    public static void printError(String message) {
+        System.out.println(message);
+    }
+
+    public static void printTriangle(char[][] triangle) {
+        for (char[] line : triangle) {
+            int spaces = triangle.length - line.length;
+            System.out.print(" ".repeat(spaces));
+            for (char c : line) {
+                System.out.print(c + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void printUniqueNumbers(List<Integer> numbers, int lineSize) {
+        int count = 0;
+        for (int num : numbers) {
+            System.out.printf("%d ", num);
+            if (++count % lineSize == 0) {
+                System.out.println();
+            }
+        }
+        System.out.println();
+    }
+}
+3. Класс Main
+Содержит логику запуска и передачи данных между классами.
+
+java
+Копировать код
+import java.util.List;
+
+public class Main {
+
+    public static void main(String[] args) {
+        try {
+            // Генерация треугольника
+            char[][] triangle = Arrays.generateTriangle('A', 'J', true);
+            Console.printTriangle(triangle);
+
+            // Генерация случайного массива
+            double[] randomArray = Arrays.randomArray(15);
+            Console.printArray(randomArray, 8);
+
+            // Уникальные числа
+            List<Integer> uniqueNumbers = Arrays.uniqueNumbers(-30, -10, 5);
+            Console.printUniqueNumbers(uniqueNumbers, 5);
+
+        } catch (IllegalArgumentException e) {
+            Console.printError(e.getMessage());
+        }
+    }
+}
+Особенности кода:
+Разделение логики:
+
+Arrays: содержит реализацию задач.
+Console: отвечает за форматирование и вывод данных.
+Main: управляет выполнением задач и вызовом методов.
+Именование методов:
+
+Методы названы в соответствии с выполняемой задачей: generateTriangle, randomArray, uniqueNumbers, printTriangle.
+Проверки ошибок:
+
+Введены проверки на допустимость данных.
+Упрощение сопровождения:
+
+Код легко расширяем и сопровождаем благодаря четкому разделению задач.
+Пример вывода:
+Генерация треугольника:
+mathematica
+Копировать код
+         A
+        B B
+       C C C
+      D D D D
+     E E E E E
+Случайный массив:
+Копировать код
+0.234 0.678 0.123 0.456 0.789 0.111 0.222 0.333 
+0.444 0.555 0.666 0.777 0.888 0.999 0.101 
+Уникальные числа:
+diff
+Копировать код
+-30 -28 -27 -26 -25 
+-24 -23 -22 -21 -20 
+-19 -18 -17 -16 -15 
